@@ -136,13 +136,32 @@ body{
 .node-items{list-style:none}
 .node-item{margin-bottom:4px}
 .node-item-text{font-size:11px;color:var(--ink-mid);margin-bottom:2px;line-height:1.3}
-.sev-row{display:flex;gap:2px}
+.sev-row{display:flex;gap:2px;flex-wrap:wrap}
 .sev-btn{min-width:26px;height:21px;border-radius:4px;border:1px solid var(--border);background:var(--paper-2);font-size:9px;font-weight:700;cursor:pointer;color:var(--ink-mid);font-family:inherit;transition:all .15s}
 .sev-btn.s1{background:#E9E0D2;border-color:var(--clay);color:#6F6151}
 .sev-btn.s2{background:#E4D2C7;border-color:#C09382;color:#7A5A4F}
 .sev-btn.s3{background:#E2CCC6;border-color:var(--rose);color:#7E534C}
 .node-add-bullet{background:none;border:1px dashed var(--border);border-radius:4px;color:var(--sage-light);font-size:9px;cursor:pointer;padding:2px 5px;width:100%;font-family:inherit;min-height:22px;margin-top:3px}
 .node-extra{list-style:none;margin-top:3px}
+
+/* Review fix: desktop seven vertical physiology boxes share one visual size without clipping
+   the severity buttons. We do NOT pin a small fixed height (that clipped the taller nodes).
+   Instead every box gets the SAME min-height — sized to fit the tallest node (energy, 9 items) —
+   so all seven render at equal height while their content (incl. .sev-row buttons) always stays
+   inside. If a user adds bullets the box grows; it never overflows. */
+@media(min-width:561px){
+  .cell-assim>.node-box,.cell-defense>.node-box,.cell-structure>.node-box,.cell-energy>.node-box,.cell-comm>.node-box,.cell-transport>.node-box,.cell-biotrans>.node-box{min-height:470px;width:100%;box-sizing:border-box}
+}
+@media(max-width:560px){
+  .cell-assim>.node-box,.cell-defense>.node-box,.cell-structure>.node-box,.cell-energy>.node-box,.cell-comm>.node-box,.cell-transport>.node-box,.cell-biotrans>.node-box{height:auto;min-height:0;width:100%;box-sizing:border-box;text-align:center;align-items:center}
+  .node-head{justify-content:center;text-align:center;width:100%}
+  .node-sub{text-align:center;width:100%}
+  .node-items,.node-extra{width:100%}
+  .node-item{text-align:center}
+  .node-item-text{text-align:center}
+  .sev-row{justify-content:center}
+}
+
 
 /* MES CORE — the only circular element (Mental / Emotional / Spiritual) */
 .mes-core{background:radial-gradient(circle at 50% 42%, #EFEAF0 0%, #E7E1E8 55%, #E0DAE0 100%);
