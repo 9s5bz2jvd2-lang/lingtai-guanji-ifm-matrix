@@ -1,0 +1,18 @@
+{
+  "name": "灵台·观己 功能医学矩阵绘制台",
+  "short_name": "灵台·观己",
+  "description": "营养师内部辅助 · 关系显影 · AI 镜照（试用版，不作诊断或治疗）/ Lingtai · Guanji Functional Medicine Matrix Drawing Studio",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F4E9CE",
+  "theme_color": "#B8860B",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

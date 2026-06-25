@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- 产品名（圆酱 final）：灵台·观己 功能医学矩阵绘制台 -->
+  <title>灵台·观己 功能医学矩阵绘制台 / Lingtai · Guanji Functional Medicine Matrix Drawing Studio</title>
+  <meta name="description" content="灵台·观己 功能医学矩阵绘制台 — 营养师内部辅助 · 关系显影 · AI 镜照（试用版，不作诊断或治疗）" />
+  <meta name="theme-color" content="#B8860B" />
+  <!-- PWA：可添加到主屏；iOS 走 apple-mobile-web-app-* -->
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="灵台·观己" />
+  <link rel="apple-touch-icon" href="./assets/icon-180.png" />
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <!-- 屏幕视图：模块化原生 JS 渲染（无 Babel / 无 React runtime / 首屏零外部依赖） -->
+  <div id="root">
+    <div class="boot">正在展卷… / Unrolling the scroll…</div>
+  </div>
+
+  <!-- 打印视图：仅 @media print 时显示，供「生成矩阵图 PDF」使用 -->
+  <div id="print-root" aria-hidden="true"></div>
+
+  <!-- 唯一脚本入口：ES module。所有依赖均为本地相对路径，首屏不拉任何大包。 -->
+  <script type="module" src="./src/app.js"></script>
+
+  <!-- PWA service worker：仅在 https / localhost 注册；file:// 下静默跳过 -->
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').catch(function () { /* 离线缓存非必需，失败不影响使用 */ });
+      });
+    }
+  </script>
+</body>
+</html>
