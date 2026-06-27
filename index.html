@@ -3,36 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#6E7B73">
+<meta name="theme-color" content="#303652">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="灵台·观己">
 <title>灵台·观己 功能医学矩阵 · IFM Matrix Worksheet</title>
 <style>
 :root{
-  /* 低饱和 Morandi · 高端私立医学软件质感：暖灰、雾米白、灰蓝、灰紫、灰玫、冷棕；低对比细边框 */
-  --bg:#EAE7E1; --paper:#F7F5F0; --paper-2:#F2EFE9;
-  --sage:#6E7B73; --sage-light:#8C9A91; --sage-pale:#E4E2DB;
-  --border:#CFC9BF; --border-soft:#DAD5CB;
-  --ink:#3B3F3B; --ink-mid:#5C615C; --ink-light:#8A8E88;
-  --left-bg:#E6E3DB; --bottom-bg:#E1DDD3; --center-bg:#F4F1EB;
-  --slate:#7E94A6;   /* 灰蓝：前因 */
-  --brown:#B49A86;   /* 冷棕：触发 */
-  --mauve:#A294A8;   /* 灰紫：介导 */
-  --rose:#B08F88;    /* 灰玫：风险/重 */
-  --clay:#C2A98F;    /* 陶土：轻 */
+  /* Brand · Dawn moon & morning stars on pure white · 曙光新月与晨星·纯白背景
+     品牌色(标题/Logo/导航) #4E5673 深雾蓝紫 · 交互色(按钮/激活) #6F7795 较亮灰蓝紫
+     强调色(Hover/Tag/小圆点) #C9A5A1 暖粉 · 高光(Hero/光晕) #F5EDE4 · 背景纯白 #FFFFFF */
+  --bg:#FFFFFF; --paper:#FFFFFF; --paper-2:#FAFBFD;
+  --sage:#4E5673; --sage-light:#6F7795; --sage-pale:#EEF0F6;
+  --border:#E2E5EE; --border-soft:#EDEFF5;
+  --ink:#4E5673; --ink-mid:#646C8A; --ink-light:#9298AE;
+  --left-bg:#FBFCFE; --bottom-bg:#FAFBFD; --center-bg:#FFFFFF;
+  --slate:#6F7795; --brown:#8A86A6; --mauve:#9A8FA8; --rose:#C9A5A1; --clay:#C9A5A1;
+  --gold:#F5EDE4; --gold-deep:#C9A5A1;
+  --brand:#4E5673; --interact:#6F7795; --accent:#C9A5A1; --glow:#F5EDE4;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
-  background:
-    radial-gradient(circle at 16% 10%, rgba(110,123,115,0.06), transparent 46%),
-    radial-gradient(circle at 88% 90%, rgba(176,143,136,0.05), transparent 48%),
-    var(--bg);
+  background:var(--bg);
   font-family:'PingFang SC','Noto Sans SC',STSong,serif;color:var(--ink);min-height:100vh;
   padding-bottom:calc(20px + env(safe-area-inset-bottom));-webkit-text-size-adjust:100%}
 
 /* HEADER */
-.hdr{background:linear-gradient(135deg,#5A645D 0%,#6E7B73 58%,#84776F 100%);
+.hdr{background:linear-gradient(135deg,#4E5673 0%,#5A6288 58%,#6F7795 100%);
   padding:12px 16px;padding-top:calc(12px + env(safe-area-inset-top));
   border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .hdr-left h1{font-size:16px;font-weight:800;color:#F4F2EC;letter-spacing:1px}
@@ -42,21 +39,21 @@ body{
 .icon-btn:active{background:rgba(255,255,255,0.22)}
 .lang-pill{display:flex;border:1px solid rgba(255,255,255,0.28);border-radius:18px;overflow:hidden}
 .lang-btn{padding:5px 9px;font-size:11px;font-weight:700;cursor:pointer;border:none;background:transparent;color:#E6E3DB;min-height:30px;font-family:inherit}
-.lang-btn.active{background:#F1EFE9;color:#4A534C}
+.lang-btn.active{background:#F5EDE4;color:#4E5673}
 
 /* SETTINGS DRAWER (AI 设置，独立于粘贴资料区) */
-.settings-drawer{display:none;background:#4A534C;border-bottom:1px solid var(--border);padding:14px 16px;gap:10px;flex-direction:column}
+.settings-drawer{display:none;background:#FFFFFF;border-bottom:1px solid var(--border);padding:14px 16px;gap:10px;flex-direction:column}
 .settings-drawer.open{display:flex}
 .settings-row{display:flex;gap:10px;flex-wrap:wrap}
 .settings-field{display:flex;flex-direction:column;gap:4px;flex:1;min-width:140px}
 .settings-field label{font-size:11px;color:#D6D3CA;font-weight:600}
-.settings-field input{padding:7px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.20);background:#3C443E;color:#F0EEE7;font-size:12px;font-family:inherit;outline:none}
+.settings-field input{padding:7px 10px;border-radius:6px;border:1px solid #D9DCE8;background:#FFFFFF;color:#4E5673;font-size:12px;font-family:inherit;outline:none}
 .preset-row{display:flex;gap:6px;flex-wrap:wrap}
 .preset-btn{padding:5px 10px;border-radius:6px;border:1px solid rgba(255,255,255,0.26);background:transparent;color:#E6E3DB;font-size:11px;cursor:pointer;min-height:30px;font-family:inherit}
 .preset-btn:active{background:rgba(255,255,255,0.14)}
 .settings-actions{display:flex;gap:8px}
 .settings-save,.settings-test{flex:1;padding:9px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;min-height:38px;font-family:inherit}
-.settings-save{border:none;background:linear-gradient(135deg,#6E7B73,#84776F);color:#F4F2EC}
+.settings-save{border:none;background:linear-gradient(135deg,#6F7795,#4E5673);color:#F4F2EC}
 .settings-test{border:1px solid rgba(255,255,255,0.26);background:transparent;color:#E6E3DB}
 .settings-note{font-size:10px;color:#B8B4AB;line-height:1.5}
 .test-result{font-size:12px;padding:6px 10px;border-radius:6px;margin-top:2px}
@@ -70,7 +67,7 @@ body{
 .pf input{flex:1;border:none;border-bottom:1px solid var(--border);background:transparent;font-size:12px;color:var(--ink);padding:2px 3px;outline:none;font-family:inherit;min-width:60px}
 
 /* TAB BAR */
-.tab-bar{display:flex;background:#4A534C;border-bottom:1px solid var(--border)}
+.tab-bar{display:flex;background:#FFFFFF;border-bottom:1px solid var(--border)}
 .tab-btn{flex:1;padding:9px 6px;font-size:12px;font-weight:600;color:#D6D3CA;border:none;background:transparent;cursor:pointer;letter-spacing:.5px;border-bottom:3px solid transparent;font-family:inherit;min-height:40px}
 .tab-btn.active{color:#F4F2EC;border-bottom-color:#C7CFC5;background:rgba(255,255,255,0.07)}
 
@@ -126,8 +123,8 @@ body{
 /* NODE BOX */
 .node-box{background:var(--paper);border:1px solid var(--border);border-top:3px solid var(--sage-light);border-radius:10px;padding:9px 9px 8px;position:relative;box-shadow:0 1px 2px rgba(80,80,76,0.05);transition:box-shadow .25s,border-color .25s;display:flex;flex-direction:column}
 .node-box:hover{box-shadow:0 4px 12px rgba(80,80,76,0.10)}
-.node-box.load1{border-color:var(--clay);border-top-color:var(--clay);background:#F8F3EE}
-.node-box.load2{border-color:var(--rose);border-top-color:var(--rose);background:#F7F0EE}
+.node-box.load1{border-color:var(--clay);border-top-color:var(--clay);background:#FBF6F2}
+.node-box.load2{border-color:var(--rose);border-top-color:var(--rose);background:#FAF1ED}
 .node-head{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap}
 .node-icon{font-size:14px}
 .node-name{font-size:12px;font-weight:800;color:var(--sage);letter-spacing:.3px}
@@ -201,7 +198,7 @@ body{
 .paste-card h3{font-size:13px;font-weight:800;color:var(--sage);margin-bottom:6px;letter-spacing:.5px}
 .paste-card p{font-size:11px;color:var(--ink-light);margin-bottom:8px;line-height:1.6}
 .paste-textarea{width:100%;min-height:150px;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--paper-2);color:var(--ink);font-size:12px;font-family:inherit;resize:vertical;outline:none;line-height:1.6}
-.analyze-btn{margin-top:8px;width:100%;padding:11px;background:linear-gradient(135deg,#6E7B73,#84776F);border:none;border-radius:8px;color:#F4F2EC;font-size:13px;font-weight:800;cursor:pointer;letter-spacing:.5px;font-family:inherit;min-height:44px}
+.analyze-btn{margin-top:8px;width:100%;padding:11px;background:linear-gradient(135deg,#6F7795,#4E5673);border:none;border-radius:8px;color:#F4F2EC;font-size:13px;font-weight:800;cursor:pointer;letter-spacing:.5px;font-family:inherit;min-height:44px}
 .analyze-btn:disabled{background:#BFBBB1;cursor:default}
 .match-result{background:var(--sage-pale);border:1px solid var(--border);border-radius:8px;padding:10px;margin-top:8px}
 .match-result h4{font-size:12px;font-weight:800;color:var(--sage);margin-bottom:6px}
@@ -217,22 +214,178 @@ body{
 .ai-summary p{font-size:12px;color:var(--ink-mid);line-height:1.6}
 
 /* BOTTOM ACTION BAR */
-.bottom-bar{background:linear-gradient(to top,#444C46,#4A534C);border-top:1px solid var(--border);padding:8px 12px;padding-bottom:calc(8px + env(safe-area-inset-bottom));display:flex;gap:6px;margin-top:16px}
+.bottom-bar{background:linear-gradient(to top,#454C66,#4E5673);border-top:1px solid var(--border);padding:8px 12px;padding-bottom:calc(8px + env(safe-area-inset-bottom));display:flex;gap:6px;margin-top:16px}
 .bb-btn{flex:1;padding:10px 4px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:.5px;min-height:44px}
-.bb-btn.primary{background:linear-gradient(135deg,#6E7B73,#84776F);color:#F4F2EC;border:none}
+.bb-btn.primary{background:linear-gradient(135deg,#6F7795,#4E5673);color:#F4F2EC;border:none}
 .bb-btn.secondary{background:transparent;color:#E6E3DB;border:1px solid rgba(255,255,255,0.28)}
 
 /* CREATOR FOOTER */
-.creator-footer{margin:14px auto 0;max-width:1180px;padding:11px 14px;text-align:center;font-size:12px;line-height:1.7;color:#5C615C;background:linear-gradient(135deg,rgba(238,236,229,.95),rgba(247,245,240,.90));border:1px solid var(--border);border-radius:14px;box-shadow:0 6px 18px rgba(80,80,76,.06)}
+.creator-footer{margin:14px auto 0;max-width:1180px;padding:11px 14px;text-align:center;font-size:12px;line-height:1.7;color:#646C8A;background:linear-gradient(135deg,rgba(245,237,228,.55),rgba(255,255,255,.92));border:1px solid var(--border);border-radius:14px;box-shadow:0 6px 18px rgba(78,86,115,.06)}
 .creator-footer a{color:var(--sage);text-decoration:none;font-weight:700}
-.footer-watermark{display:inline-block;color:var(--sage);border:1px solid var(--sage-light);border-radius:999px;padding:3px 12px;margin-bottom:5px;font-weight:800;letter-spacing:.08em;background:rgba(110,123,115,.08)}
+.footer-watermark{display:inline-block;color:var(--sage);border:1px solid var(--sage-light);border-radius:999px;padding:3px 12px;margin-bottom:5px;font-weight:800;letter-spacing:.08em;background:rgba(201,165,161,.10)}
+/* 关注公众号：独立强调行——比正文大、加粗、主蓝/粉紫可读色，上下留白，高端不喧宾 */
+.creator-follow{display:block;margin:9px auto;font-size:15px;font-weight:700;color:#4E5673;letter-spacing:.04em;line-height:1.5}
+.creator-follow .cf-en{display:block;margin-top:2px;font-size:11px;font-weight:600;color:#8A86A6;letter-spacing:.02em}
+@media(max-width:640px){.creator-follow{font-size:13px;margin:8px auto}.creator-follow .cf-en{font-size:10px}}
 .footer{text-align:center;font-size:10px;color:var(--ink-light);padding:14px;max-width:1180px;margin:0 auto}
+
+/* ═══════════════════════════════════════════════════════════════
+   v2 (2026-06-27) · 功能医学树首页 + 问卷式流程 + 用户/营养师双端
+   圆酱《IFM版本》要求：高级配色（莫兰迪+书卷金棕，已集中在 :root，
+   待参考图后可精准换色）、问卷式更佳、区分用户/营养师端、首页加功能医学树。
+   设计原则：包裹而非重写——保留全部既有 worksheet/AI/导出/保存逻辑与 id。
+   ═══════════════════════════════════════════════════════════════ */
+
+/* root palette additions — 书卷金棕 accent，集中在变量便于参考图到位后整体替换 */
+:root{
+  --gold:#B89B6E;          /* 书卷金棕 accent（树干/果实/强调） */
+  --gold-deep:#9A7F54;
+  --gold-pale:#EFE7D6;
+  --root-slate:#7E94A6;    /* 根：前因（复用 --slate 色系） */
+  --root-brown:#B49A86;    /* 根：触发 */
+  --root-mauve:#A294A8;    /* 根：介导 */
+  --leaf:#6F7795;          /* 晨光枝叶（曙光交互色系） */
+}
+
+/* 屏幕路由：landing / user / pro 三屏，默认 landing */
+.screen{display:none}
+.screen.active{display:block}
+
+/* 角色切换 pill（放在 header 右侧，替代旧的单一标题副文案行为） */
+.role-pill{display:flex;border:1px solid rgba(255,255,255,0.28);border-radius:18px;overflow:hidden;flex-shrink:0}
+.role-btn{padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:#E6E3DB;min-height:34px;font-family:inherit;white-space:nowrap}
+.role-btn.active{background:#F5EDE4;color:#4E5673}
+
+/* ───────── LANDING：功能医学树 ───────── */
+.landing-wrap{max-width:1180px;margin:0 auto;padding:18px 14px 8px}
+.landing-hero{text-align:center;margin-bottom:6px}
+.landing-hero h2{font-size:21px;font-weight:800;color:var(--sage);letter-spacing:1px}
+.landing-hero .hero-en{font-size:11px;color:var(--ink-light);margin-top:3px;letter-spacing:.5px}
+.landing-hero p{font-size:13px;color:var(--ink-mid);margin-top:10px;line-height:1.7;max-width:680px;margin-left:auto;margin-right:auto}
+
+.tree-card{background:#FFFFFF;border:1px solid var(--border);border-radius:18px;padding:14px 10px 18px;margin:14px 0;box-shadow:0 6px 22px rgba(78,86,115,.07)}
+.tree-svg-wrap{width:100%;max-width:560px;margin:0 auto;display:block}
+.tree-svg-wrap svg{width:100%;height:auto;display:block}
+/* legend below the tree maps each tier to its IFM meaning */
+.tree-legend{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+@media(max-width:680px){.tree-legend{grid-template-columns:repeat(2,1fr)}}
+.legend-item{background:var(--paper);border:1px solid var(--border-soft);border-radius:10px;padding:9px 10px}
+.legend-item .lg-tier{font-size:12px;font-weight:800;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+.legend-item .lg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+/* tier 字标记为深色小印（根/干/枝/果），克制不卡通 */
+.tree-svg-wrap svg .tree-node-g:hover circle:nth-of-type(2){stroke-width:3}
+.tree-svg-wrap svg .tree-node-g:focus{outline:none}
+.legend-item .lg-zh{font-size:11px;color:var(--ink-mid);margin-top:4px;line-height:1.5}
+.legend-item .lg-en{font-size:9px;color:var(--ink-light);margin-top:1px}
+
+.landing-cta{display:flex;gap:12px;flex-wrap:wrap;max-width:680px;margin:6px auto 0}
+.cta-btn{flex:1;min-width:200px;border-radius:14px;padding:16px 14px;cursor:pointer;font-family:inherit;text-align:left;border:1px solid var(--border);transition:transform .15s,box-shadow .2s}
+.cta-btn:active{transform:translateY(1px)}
+.cta-btn:hover{box-shadow:0 6px 18px rgba(78,86,115,.12);border-color:rgba(111,119,149,.40)}
+/* 用户卡：晨蓝白；营养师卡：极淡高光暖白。皆近白，仅一缕色温区分，不做色块。 */
+.cta-user{background:linear-gradient(135deg,#FFFFFF,#F4F6FB)}
+.cta-pro{background:linear-gradient(135deg,#FFFFFF,#FAF4EE)}
+.cta-btn .cta-icon{font-size:22px}
+.cta-btn .cta-title{font-size:15px;font-weight:800;color:var(--ink);margin-top:4px}
+.cta-btn .cta-sub{font-size:11px;color:var(--ink-mid);margin-top:3px;line-height:1.5}
+.landing-safety{text-align:center;font-size:11px;color:var(--ink-light);margin:16px auto 4px;max-width:680px;line-height:1.6}
+/* 介绍/说明类双语：英文为中文下方一行小字（次级灰），中英始终同时可见 */
+.bi-en{display:block;margin-top:3px;font-size:.86em;font-weight:500;color:var(--ink-light);line-height:1.5;letter-spacing:.2px}
+.cta-btn .cta-sub .bi-en{color:var(--ink-mid);opacity:.92}
+
+/* ───────── USER PORTAL：问卷向导 ───────── */
+.wizard-wrap{max-width:760px;margin:0 auto;padding:16px 14px}
+.wizard-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.wizard-back{background:var(--paper-2);border:1px solid var(--border);border-radius:8px;color:var(--ink-mid);font-size:12px;padding:6px 11px;cursor:pointer;font-family:inherit;min-height:34px}
+.wizard-title{font-size:16px;font-weight:800;color:var(--sage)}
+.step-bar{display:flex;gap:6px;margin-bottom:14px}
+.step-pip{flex:1;height:6px;border-radius:99px;background:var(--border-soft);transition:background .25s}
+.step-pip.done{background:var(--sage-light)}
+.step-pip.current{background:var(--sage)}
+.q-card{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
+.q-step-label{font-size:12px;color:var(--gold-deep);font-weight:800;letter-spacing:1px;margin-bottom:2px}
+.q-step-title{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.q-step-desc{font-size:12px;color:var(--ink-light);line-height:1.6;margin-bottom:12px}
+.q-field{margin-bottom:14px}
+.q-field>label{display:block;font-size:13px;font-weight:700;color:var(--ink-mid);margin-bottom:6px}
+.q-field input[type=text],.q-field input[type=date],.q-field textarea{width:100%;border:1px solid var(--border);border-radius:8px;background:var(--paper-2);color:var(--ink);font-size:14px;font-family:inherit;padding:9px 11px;outline:none;line-height:1.5}
+.q-field textarea{min-height:62px;resize:vertical}
+.q-help{font-size:11px;color:var(--ink-light);margin-top:4px;line-height:1.5}
+/* symptom chips: tap to mark 有/没有 — no jargon, no scores shown to user */
+.q-symptoms{display:flex;flex-wrap:wrap;gap:7px}
+.sym-chip{border:1px solid var(--border);background:var(--paper-2);color:var(--ink-mid);border-radius:99px;padding:7px 13px;font-size:13px;cursor:pointer;font-family:inherit;min-height:36px;transition:all .15s}
+.sym-chip.on{background:var(--sage);border-color:var(--sage);color:#F4F2EC;font-weight:700}
+.q-group-title{font-size:13px;font-weight:800;color:var(--sage);margin:6px 0 8px;display:flex;align-items:center;gap:6px}
+.q-group-title .qg-icon{font-size:15px}
+/* lifestyle self-rating: simple 4-level word buttons */
+.q-ls-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.q-ls-name{font-size:13px;color:var(--ink-mid);font-weight:700;min-width:96px}
+.q-ls-opts{display:flex;gap:5px;flex-wrap:wrap}
+.q-ls-btn{min-width:44px;height:34px;border-radius:7px;border:1px solid var(--border);background:var(--paper-2);font-size:12px;font-weight:700;cursor:pointer;color:var(--ink-mid);font-family:inherit;transition:all .15s}
+.q-ls-btn.active{background:var(--sage);border-color:var(--sage);color:#F4F2EC}
+.wizard-nav{display:flex;gap:10px;margin-top:4px}
+.wz-btn{flex:1;padding:13px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;font-family:inherit;min-height:48px}
+.wz-prev{background:transparent;border:1px solid var(--border);color:var(--ink-mid)}
+.wz-next{background:linear-gradient(135deg,#6F7795,#4E5673);border:none;color:#F4F2EC}
+.wz-done{background:linear-gradient(135deg,var(--gold),var(--gold-deep));border:none;color:#FBF7EF}
+.q-thanks{text-align:center;padding:18px 12px}
+.q-thanks .qt-icon{font-size:38px}
+.q-thanks h3{font-size:18px;font-weight:800;color:var(--sage);margin:8px 0 6px}
+.q-thanks p{font-size:13px;color:var(--ink-mid);line-height:1.7;max-width:520px;margin:0 auto 12px}
+
+/* ───────── v3 用户端结果：我的矩阵 + 简单分析（+ AI 分析）───────── */
+.result-card{background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px}
+.result-card h3{font-size:15px;font-weight:800;color:var(--sage);margin-bottom:4px;letter-spacing:.5px}
+.result-card .rc-hint{font-size:11px;color:var(--ink-light);line-height:1.6;margin-bottom:10px}
+/* 简版矩阵：7 节点小卡片网格，只读、按选中项数显示深浅，不给 0–100 分 */
+.umx-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:680px){.umx-grid{grid-template-columns:repeat(2,1fr)}}
+.umx-cell{border:1px solid var(--border-soft);border-top:3px solid var(--border);border-radius:10px;padding:8px 9px;background:var(--paper-2);min-height:84px;display:flex;flex-direction:column;gap:3px}
+.umx-cell.lv1{border-top-color:var(--clay);background:#FBF6F2}
+.umx-cell.lv2{border-top-color:var(--rose);background:#FAF1ED}
+.umx-name{font-size:12px;font-weight:800;color:var(--sage);display:flex;align-items:center;gap:4px}
+.umx-sub{font-size:9px;color:var(--ink-light);line-height:1.3}
+.umx-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:2px}
+.umx-tag{font-size:9.5px;background:var(--sage-pale);border:1px solid var(--border-soft);border-radius:99px;padding:1px 7px;color:var(--ink-mid)}
+.umx-none{font-size:10px;color:var(--ink-light)}
+.umx-mes{grid-column:1 / -1;border-top-color:var(--mauve);background:radial-gradient(circle at 50% 0%,#EFEAF0,#F2EFE9 70%)}
+/* 简单分析（确定性、非诊断、保守措辞）*/
+.simple-an{font-size:12.5px;color:var(--ink-mid);line-height:1.8}
+.simple-an .sa-focus{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.sa-focus-tag{font-size:11px;font-weight:700;background:var(--gold-pale);border:1px solid var(--gold);border-radius:99px;padding:3px 11px;color:var(--gold-deep)}
+.simple-an ul{list-style:none;margin:2px 0 0;padding:0}
+.simple-an li{position:relative;padding-left:16px;margin-bottom:6px}
+.simple-an li::before{content:'·';position:absolute;left:5px;color:var(--sage);font-weight:800}
+.sa-note{font-size:11px;color:var(--ink-light);border-top:1px dashed var(--border-soft);margin-top:10px;padding-top:8px;line-height:1.6}
+/* 用户端 AI 分析区（与简单分析并列；输入留空时给出本地结果）*/
+.user-ai-card{background:#EAEAE3;border:1px solid var(--border);border-left:3px solid var(--sage);border-radius:12px;padding:14px;margin-bottom:12px}
+.user-ai-card h3{color:var(--sage)}
+.user-ai-btn{width:100%;padding:11px;border:none;border-radius:9px;background:linear-gradient(135deg,#5E6B72,#7E8A86);color:#F4F2EC;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;min-height:44px;margin-top:6px}
+.user-ai-btn:disabled{background:#BFBBB1}
+.user-ai-out{font-size:12.5px;color:var(--ink-mid);line-height:1.75;margin-top:10px;white-space:pre-wrap;display:none}
+.user-ai-out.show{display:block}
+.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.result-actions .wz-btn{min-width:120px}
+
+/* ───────── PRO PORTAL：营养师端 ───────── */
+.pro-subnav{display:flex;background:#4E5673;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.pro-subnav .tab-btn{flex:1;min-width:96px}
+/* advanced data-management area, tucked inside pro portal */
+.data-mgmt{max-width:1180px;margin:12px auto;padding:0 14px}
+.data-mgmt details{background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:4px 14px}
+.data-mgmt summary{font-size:13px;font-weight:800;color:var(--ink-mid);cursor:pointer;padding:10px 0;list-style:none}
+.data-mgmt summary::-webkit-details-marker{display:none}
+.data-mgmt summary::before{content:'⚙ ';color:var(--gold-deep)}
+.dm-body{padding:4px 0 14px;display:flex;flex-direction:column;gap:8px}
+.dm-row{display:flex;gap:8px;flex-wrap:wrap}
+.dm-btn{flex:1;min-width:130px;padding:11px;border-radius:9px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;min-height:44px;border:1px solid var(--border);background:var(--paper-2);color:var(--ink-mid)}
+.dm-note{font-size:11px;color:var(--ink-light);line-height:1.6}
 
 #print-root{display:none}
 @media print{
 body>*:not(#print-root){display:none!important}
 #print-root{display:block!important;background:white!important;color:#3B3F3B!important}
-  .hdr .hdr-right,.tab-bar,.bottom-bar,.add-bullet,.node-add-bullet,.bullet-del,.sev-row,.ls-sev,.ls-note,.paste-wrap,.ai-summary,.settings-drawer,.footer{display:none!important}
+  .hdr .hdr-right,.tab-bar,.pro-subnav,.bottom-bar,.add-bullet,.node-add-bullet,.bullet-del,.sev-row,.ls-sev,.ls-note,.paste-wrap,.ai-summary,.settings-drawer,.footer,.landing-wrap,.wizard-wrap,.data-mgmt,.role-pill{display:none!important}
   body{background:white;padding-bottom:0}
   .node-box{break-inside:avoid;box-shadow:none}
   @page{margin:12mm}
@@ -322,18 +475,337 @@ body>*:not(#print-root){display:none!important}
 }
 /* ===== /FONT-BUMP OVERFLOW FIX 2026-06-25 ===== */
 
+
+/* ============================================================================
+   BRAND · Dawn moon & morning stars · pure white background · 2026-06-27
+   品牌魂：The Tree of Life beneath the dawn moon and morning stars.
+   night→sunrise 之间安静的过渡——月光仍在、第一缕晨光刚照亮世界；
+   在暗处找根因、理解身体隐藏的故事，逐渐朝健康与活力生长。
+   色板：品牌 #4E5673 · 交互 #6F7795 · 强调(暖粉) #C9A5A1 · 高光 #F5EDE4 · 背景纯白
+   ============================================================================ */
+
+/* —— 纯白背景：去除旧脏渐变；仅在右上保留一缕极淡晨光光晕（不污染整页）—— */
+body{
+  background:#FFFFFF!important;
+}
+/* 背景纯白；不做整页渐变洗底。夜→晨的转场只发生在树与微细高光上，
+   背景上仅余「月晕」——一缕极淡、极局部的暖白光，绝不蔓延成大面积色洗。
+   非 fixed，随页滚动，避免「水印」般贴在视口的廉价感。 */
+body::before{
+  content:""; position:absolute; top:0; right:0; width:240px; height:200px; pointer-events:none; z-index:-1;
+  background:radial-gradient(120px 96px at calc(100% - 64px) 78px, rgba(245,237,228,.30), rgba(245,237,228,.09) 52%, transparent 76%);
+}
+
+/* —— 右上：曙光新月（很轻的暖白发光体，非贴纸双圆 decal）+ 极小近白晨星 —— */
+.moon-deco{position:absolute;right:46px;top:54px;width:96px;height:84px;z-index:8;pointer-events:none;}
+/* 月：纯发光体——中心暖白、向外快速透明，无硬边、无遮挡圆。低存在感，似第一缕晨光中将隐的月。 */
+.moon-deco .crescent{position:absolute;right:22px;top:8px;width:46px;height:46px;border-radius:50%;
+  background:radial-gradient(circle at 46% 44%, rgba(255,252,247,.95), rgba(245,237,228,.52) 42%, rgba(245,237,228,.15) 66%, transparent 82%);
+  box-shadow:0 0 22px rgba(245,237,228,.38);}
+.moon-deco .crescent::after{content:none;}
+/* 晨星：极小、近白、低存在感的光点，疏落两三颗，属于「此刻」的天光 */
+.moon-deco .star{position:absolute;right:8px;top:16px;width:2.5px;height:2.5px;border-radius:50%;
+  background:rgba(255,253,249,.92);box-shadow:0 0 4px rgba(255,250,242,.8);}
+.moon-deco .star::after{content:"";position:absolute;right:12px;top:26px;width:2px;height:2px;border-radius:50%;
+  background:rgba(252,246,238,.88);box-shadow:0 0 3px rgba(252,246,238,.66);}
+.moon-deco .star2{position:absolute;right:70px;top:34px;width:2px;height:2px;border-radius:50%;
+  background:rgba(250,244,236,.84);box-shadow:0 0 3px rgba(250,244,236,.6);}
+.moon-deco .star2::after{content:"";position:absolute;right:-20px;top:-18px;width:1.5px;height:1.5px;border-radius:50%;
+  background:rgba(248,242,234,.8);box-shadow:0 0 2px rgba(248,242,234,.55);}
+
+/* —— 头部 / Logo / 导航：品牌色 #4E5673（白底 + 极淡晨蓝玻璃）—— */
+.hdr{background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(250,251,253,.92))!important;
+  backdrop-filter:blur(12px);border-bottom:1px solid #E6E9F1!important;box-shadow:0 10px 28px rgba(78,86,115,.06)!important;}
+.hdr,.hdr *{color:#4E5673!important;}
+.hdr .icon-btn,.hdr .lang-btn{border-color:rgba(111,119,149,.30)!important;background:rgba(111,119,149,.06)!important;}
+.hdr .lang-btn.active{background:#4E5673!important;color:#F5EDE4!important;}
+.tab-bar{background:#FFFFFF!important;border-bottom:1px solid #E6E9F1!important;}
+.tab-btn{color:#9298AE!important;}
+.tab-btn.active{color:#4E5673!important;border-bottom-color:#6F7795!important;background:rgba(111,119,149,.05)!important;}
+.patient-bar{background:#FAFBFD!important;border-bottom:1px solid #EDEFF5!important;}
+
+/* —— 设置抽屉：浅色化，文字用品牌色 —— */
+.settings-drawer{background:linear-gradient(180deg,#FFFFFF,#F5F7FB)!important;color:#4E5673!important;border-bottom:1px solid #E6E9F1!important;}
+.settings-drawer label,.settings-note{color:#646C8A!important;}
+.settings-field input{background:#FFFFFF!important;color:#4E5673!important;border:1px solid #D9DCE8!important;}
+.settings-save{background:#6F7795!important;color:#F5EDE4!important;}
+.settings-test,.preset-btn{color:#6F7795!important;border-color:rgba(111,119,149,.34)!important;}
+
+/* —— 卡片/面板：纯白，淡晨蓝描边与轻投影 —— */
+.tree-card,.result-card,.workspace-card,.question-card,.ai-panel,.batch-card,.panel,.card{
+  background:#FFFFFF!important;border-color:#E6E9F1!important;box-shadow:0 14px 40px rgba(78,86,115,.07)!important;}
+
+/* —— 交互色 #6F7795：主按钮 / 激活态 —— */
+.wz-next,.primary-btn,.ai-run-btn{background:linear-gradient(135deg,#6F7795,#4E5673)!important;color:#F5EDE4!important;
+  border-color:rgba(78,86,115,.30)!important;box-shadow:0 10px 24px rgba(111,119,149,.20)!important;}
+.wz-next:hover,.primary-btn:hover,.ai-run-btn:hover{filter:brightness(1.04);}
+/* —— 强调色 #C9A5A1（暖粉·曙光）：Hover / Tag / 小圆点 —— */
+.q-ls-btn.active,.role-btn.active,.lang-btn.active{background:#F5EDE4!important;color:#4E5673!important;border-color:rgba(201,165,161,.55)!important;}
+/* 暖粉#C9A5A1 仅作稀有强调：Tag/小圆点/Hover；atm-dot 保留各自冷调品牌色以维持语义。 */
+.tag,.chip,.pill-dot,.q-dot.on,.dot.active{background:#C9A5A1!important;}
+a:hover,.link:hover{color:#C9A5A1!important;}
+button{border-color:#E2E5EE!important;}
+/* 不再全局压暗 SVG 描边——树需保有生命感与向上生长的明度递进，不washed成灰线稿。 */
+
+@media(max-width:640px){
+  /* 月与星整体下移到标题栏之下并缩小，绝不遮挡左侧标题；保持极低存在感 */
+  .moon-deco{right:12px;top:128px;width:64px;height:56px;opacity:.9}
+  .moon-deco .crescent{width:34px;height:34px;right:14px;top:4px}
+  .moon-deco .star{right:6px;top:12px;width:2px;height:2px}
+  .moon-deco .star::after{right:9px;top:20px}
+  .moon-deco .star2{right:48px;top:24px;width:1.5px;height:1.5px}
+  .moon-deco .star2::after{right:-14px;top:-12px}
+  body::before{width:170px;height:150px}
+}
+@media print{.moon-deco{display:none!important} body::before{display:none!important}}
+
+/* ============================================================================
+   DAWN-MOON · OLD TREE · DEEP TITLE · PURPLE BUTTONS · 2026-06-27
+   圆酱最新精确要求（只改视觉，不动功能/结构/id）：
+   ① 整页 body 纯白 #FFFFFF（不回整页渐变）
+   ② 标题栏/品牌标题加深 → 近墨蓝紫 #303652 / #383F5F
+   ③ 生命之树卡片(.tree-card)边框内局部渐变（雾蓝紫→暖白→极淡粉紫），只在卡片内
+   ④ 按钮统一偏粉紫，hover/active 同色系
+   ⑤ 明暗差拉开：正文/重要线条更深、背景/留白更亮
+   末尾覆盖块，确保覆盖前文 dawn-white 规则。
+   ============================================================================ */
+
+/* ① 纯白底（再次锁定，绝不整页渐变） */
+body{background:#FFFFFF!important;}
+
+/* ⑤ 明度拉开：正文文字与重要线条更深 */
+:root{
+  --ink:#2C3150;--ink-mid:#454C70;--ink-light:#7E84A0;
+  --sage:#303652;--sage-light:#5A6188;--border:#DADFEC;--border-soft:#E7EAF3;
+}
+.center-col,.story-col,.lifestyle-band{border-color:#DADFEC!important;}
+
+/* ② 标题栏加深：深雾蓝紫填充 + 浅色字（清晰的深色标题条） */
+.hdr{background:linear-gradient(135deg,#303652 0%,#363D5C 56%,#383F5F 100%)!important;
+  backdrop-filter:none!important;border-bottom:1px solid #2A2F49!important;
+  box-shadow:0 8px 24px rgba(40,45,73,.22)!important;}
+.hdr,.hdr *{color:#EFEDF4!important;}
+.hdr-left h1{color:#F6F4FA!important;font-weight:800;letter-spacing:1px;}
+.hdr-left p{color:#C7C9DC!important;}
+.hdr .icon-btn{border-color:rgba(255,255,255,.30)!important;background:rgba(255,255,255,.12)!important;color:#F2F0F7!important;}
+.hdr .lang-btn,.hdr .role-btn{border-color:rgba(255,255,255,.28)!important;background:transparent!important;color:#DAD8E8!important;}
+.hdr .lang-btn.active,.hdr .role-btn.active{background:#C9A5A1!important;color:#2C3150!important;}
+.role-pill,.lang-pill{border-color:rgba(255,255,255,.30)!important;}
+
+/* tab-bar 在深标题条下方仍白底，提升明暗对比 */
+.tab-bar{background:#FFFFFF!important;border-bottom:1px solid #DADFEC!important;}
+.tab-btn{color:#8A8FA8!important;}
+.tab-btn.active{color:#303652!important;border-bottom-color:#9A78C0!important;background:rgba(154,120,192,.06)!important;}
+.pro-subnav{background:linear-gradient(135deg,#303652,#383F5F)!important;}
+
+/* ③ 生命之树卡片：边框内局部 dawn 渐变（只在卡片内，透明克制） */
+.tree-card{
+  background:
+    radial-gradient(120% 90% at 18% 0%, rgba(111,119,149,.10), rgba(111,119,149,0) 55%),
+    radial-gradient(120% 100% at 88% 100%, rgba(201,165,161,.12), rgba(201,165,161,0) 58%),
+    linear-gradient(170deg, #F4F6FC 0%, #FFFFFF 46%, #FBF5F4 100%)!important;
+  border:1px solid #DCE0EE!important;
+  box-shadow:0 16px 44px rgba(48,54,82,.10)!important;
+  position:relative;overflow:hidden;}
+/* hero 标题在卡片渐变上更深 */
+.landing-hero h2{color:#2C3150!important;}
+
+/* 🌙 新月：清楚但克制——树卡右上方一弯暖白新月，极淡粉紫高光。
+   不暗夜化、不抢标题（在卡片内、标题之下）；页面背景仍纯白。
+   做法：暖白圆盘 + 错位圆「咬」出弯月（mask radial 透明），外发光极淡粉紫。 */
+.tree-card .card-moon{
+  position:absolute;top:16px;right:20px;width:36px;height:36px;border-radius:50%;
+  background:radial-gradient(circle at 36% 36%, #FFFDF8 0%, #FCF5F3 50%, #F1E4EA 100%);
+  /* 错位同径圆「咬」出弯月：cutout 圆向右上偏 38%、同直径，留下一弯清楚的月牙 */
+  -webkit-mask:radial-gradient(circle 18px at 88% 18%, transparent 17px, #000 18px);
+          mask:radial-gradient(circle 18px at 88% 18%, transparent 17px, #000 18px);
+  box-shadow:0 0 18px rgba(201,165,161,.32), 0 0 7px rgba(255,250,244,.6);
+  opacity:.95;pointer-events:none;z-index:3;}
+/* 一两点极小晨星伴月，疏落克制 */
+.tree-card .card-moon::after{content:"";position:absolute;left:-13px;top:9px;width:2.5px;height:2.5px;
+  border-radius:50%;background:rgba(201,165,161,.78);box-shadow:0 0 4px rgba(201,165,161,.6);}
+@media(max-width:640px){
+  .tree-card .card-moon{top:12px;right:14px;width:30px;height:30px;
+    -webkit-mask:radial-gradient(circle 15px at 88% 18%, transparent 14px, #000 15px);
+            mask:radial-gradient(circle 15px at 88% 18%, transparent 14px, #000 15px);}
+}
+@media print{.tree-card .card-moon{display:none!important}}
+
+/* 其余卡片保持纯白（不染渐变），仅描边/投影统一 */
+.result-card,.q-card,.paste-card,.user-ai-card,.legend-item{background:#FFFFFF!important;}
+
+/* ④ 按钮粉紫：主行动/向导/分析/导出/AI 等统一粉紫渐变，hover/active 同色系 */
+.wz-next,.primary-btn,.ai-run-btn,.analyze-btn,.user-ai-btn,
+.bb-btn.primary,.settings-save,.cta-btn,.dm-btn{
+  background:linear-gradient(135deg,#A98AD0 0%,#8E6FBE 52%,#7E5FB0 100%)!important;
+  color:#FBF8FF!important;border:1px solid rgba(126,95,176,.42)!important;
+  box-shadow:0 10px 24px rgba(142,111,190,.24)!important;}
+.wz-next:hover,.primary-btn:hover,.ai-run-btn:hover,.analyze-btn:hover,
+.user-ai-btn:hover,.bb-btn.primary:hover,.settings-save:hover,.cta-btn:hover,.dm-btn:hover{
+  filter:brightness(1.05);box-shadow:0 12px 28px rgba(142,111,190,.30)!important;}
+.wz-done{background:linear-gradient(135deg,#C9A5A1,#B98AB0)!important;color:#FFF7FB!important;border:none!important;}
+/* CTA 卡内文字回深（粉紫底上保持可读，标题/副标改浅） */
+.cta-btn .cta-title{color:#FBF8FF!important;}
+.cta-btn .cta-sub{color:#F0E8F6!important;}
+/* 介绍/说明双语：粉紫卡上英文副行也用浅色，确保中英两行都清晰可读 */
+.cta-btn .cta-title .bi-en{color:#F3ECFB!important;opacity:.95;}
+.cta-btn .cta-sub .bi-en{color:#EFE6F7!important;opacity:.95;}
+.cta-btn .cta-icon{filter:none;}
+/* dm-btn 偏淡粉紫描边款（次级动作，避免一片实心粉紫） */
+.dm-btn{background:linear-gradient(135deg,#F3EEFA,#FBF6FC)!important;color:#6E55A0!important;border:1px solid rgba(142,111,190,.40)!important;box-shadow:none!important;}
+.dm-btn:hover{filter:none;box-shadow:0 6px 16px rgba(142,111,190,.16)!important;}
+/* 激活态 / 选中 chip / 程度按钮统一粉紫 */
+.sym-chip.on,.q-ls-btn.active,.ls-btn.active,.match-tag{background:#8E6FBE!important;border-color:#8E6FBE!important;color:#FBF8FF!important;}
+.step-pip.current{background:#8E6FBE!important;}
+.step-pip.done{background:#B79FD6!important;}
+a:hover,.link:hover{color:#8E6FBE!important;}
+
+/* ⑤ 简单分析/强调 tag 保留暖粉，但加深文字以拉开层次 */
+.simple-an li b{color:#303652!important;}
+.q-step-label,.sa-focus-tag{color:#7E5FB0!important;}
+
+@media print{
+  .hdr{background:#FFFFFF!important;box-shadow:none!important;}
+  .hdr,.hdr *{color:#303652!important;}
+  .tree-card{background:#FFFFFF!important;}
+}
+/* ===== /DAWN-MOON OLD-TREE DEEP-TITLE PURPLE-BUTTONS ===== */
+
+/* ============================================================================
+   GOLD CRESCENT MOON · 右上角金黄色新月 · 2026-06-27
+   圆酱最后补充（最高优先）：在页面右上角加一弯金黄色新月。
+   做法：暖白圆盘做金黄渐变（#F6D58A→#F2C766→#D8A441），错位同径圆 mask
+   「咬」出一弯清楚的月牙；外发光极淡金黄 glow。清楚可见但克制，不抢标题。
+   桌面：页面右上角固定（position:fixed），始终随视口可见。
+   移动端：移入标题栏之下右上方、缩小，绝不遮挡左侧标题，无横向滚动。
+   末尾覆盖块，确保覆盖前文一切月相规则。
+   ============================================================================ */
+.gold-moon{
+  position:fixed;top:64px;right:30px;width:42px;height:42px;border-radius:50%;
+  z-index:30;pointer-events:none;
+  /* 金黄盘面：高光偏 #F6D58A，主体 #F2C766，边缘沉到 #D8A441 */
+  background:radial-gradient(circle at 38% 34%, #FFEFC6 0%, #F6D58A 30%, #F2C766 58%, #D8A441 100%);
+  /* 错位同径圆「咬」出弯月：cutout 圆向右上偏移、同直径，留下清楚的金黄月牙 */
+  -webkit-mask:radial-gradient(circle 21px at 86% 16%, transparent 20px, #000 21px);
+          mask:radial-gradient(circle 21px at 86% 16%, transparent 20px, #000 21px);
+  /* 极淡金黄 glow */
+  box-shadow:0 0 22px rgba(216,164,65,.42), 0 0 9px rgba(246,213,138,.6);
+  opacity:.97;}
+/* 一点极小金黄晨星伴月，疏落克制 */
+.gold-moon::after{content:"";position:absolute;left:-15px;top:11px;width:3px;height:3px;
+  border-radius:50%;background:rgba(242,199,102,.92);box-shadow:0 0 5px rgba(216,164,65,.7);}
+@media(max-width:640px){
+  /* 移到标题栏之下右上方并缩小，绝不遮挡左侧标题；仍清楚可见、无横向滚动 */
+  .gold-moon{position:absolute;top:126px;right:16px;width:34px;height:34px;opacity:.96;
+    -webkit-mask:radial-gradient(circle 17px at 86% 16%, transparent 16px, #000 17px);
+            mask:radial-gradient(circle 17px at 86% 16%, transparent 16px, #000 17px);}
+  .gold-moon::after{left:-12px;top:9px;width:2.5px;height:2.5px}
+}
+@media print{.gold-moon{display:none!important}}
+
+/* ============================================================================
+   PURPLE BUTTONS · 3–5 BLUE SCALE · ROUND-DOT TREE · 2026-06-27
+   圆酱最新裁断（人类要求）：
+   ① 主配色收为「按钮粉紫 + 3~5 档蓝色」；金黄新月只点睛、不大面积主色。
+   ② 减少暖粉/金棕大面积使用：把原 clay #C9A5A1 / gold-brown 强调统一收到蓝阶。
+   ③ 树回到「圆点式」生命树（见 renderTree 重写），给节点文字留呼吸。
+   蓝阶：#303652 #383F5F #5A6188 #6F7795 #DCE0EE / #F4F6FC（深→浅 3~5 档）。
+   末尾覆盖块，确保覆盖前文一切暖粉/金棕强调规则。按钮粉紫保持不变。
+   ============================================================================ */
+:root{
+  /* 蓝阶 3~5 档（深→浅）作为辅助主色 */
+  --blue-1:#303652; --blue-2:#383F5F; --blue-3:#5A6188; --blue-4:#6F7795; --blue-5:#DCE0EE; --blue-6:#F4F6FC;
+  /* 把原暖粉/金棕变量整体收到蓝阶，减少暖色大面积 */
+  --clay:#5A6188; --rose:#6F7795; --gold:#6F7795; --gold-deep:#5A6188; --gold-pale:#DCE0EE;
+  --accent:#5A6188; --glow:#DCE0EE;
+}
+/* 树卡内部渐变：去掉暖粉角，改为雾蓝紫→白→极淡蓝 */
+.tree-card{
+  background:
+    radial-gradient(120% 90% at 18% 0%, rgba(90,97,136,.12), rgba(90,97,136,0) 55%),
+    radial-gradient(120% 100% at 88% 100%, rgba(111,119,149,.10), rgba(111,119,149,0) 58%),
+    linear-gradient(170deg, #F4F6FC 0%, #FFFFFF 48%, #F4F6FC 100%)!important;
+  border:1px solid #DCE0EE!important;}
+/* 树卡小新月仍保留（点睛暖白），但晨星点改为蓝以减少暖点 */
+.tree-card .card-moon::after{background:rgba(111,119,149,.78)!important;box-shadow:0 0 4px rgba(111,119,149,.5)!important;}
+/* 角色/语言激活态：原暖粉底 → 浅蓝底深字（与标题深蓝同族） */
+.hdr .lang-btn.active,.hdr .role-btn.active{background:#DCE0EE!important;color:#303652!important;}
+.role-btn.active{background:#DCE0EE!important;color:#303652!important;}
+/* 程度/选中态：分三档蓝，拉开层级（防御/触发等不再用暖红） */
+.sev-btn.s1{background:#DCE0EE!important;border-color:#6F7795!important;color:#383F5F!important;}
+.sev-btn.s2{background:#B9C0D8!important;border-color:#5A6188!important;color:#2C3150!important;}
+.sev-btn.s3{background:#8E97B6!important;border-color:#383F5F!important;color:#FFFFFF!important;}
+/* node-box 负荷态：原暖棕/暖粉 → 蓝阶（轻→重） */
+.node-box.load1{border-color:#6F7795!important;border-top-color:#6F7795!important;background:#F4F6FC!important;}
+.node-box.load2{border-color:#5A6188!important;border-top-color:#5A6188!important;background:#EBEEF6!important;}
+/* ATM 故事点：前因/触发/介导改 3 档蓝 */
+.atm-dot{} /* 颜色经内联 var(--slate)/(--brown)/(--mauve) 设置，已在下方变量收蓝 */
+:root{ --slate:#5A6188; --brown:#6F7795; --mauve:#8E97B6; }
+/* 完成按钮 wz-done：原暖粉渐变 → 蓝阶渐变（与粉紫区分但同冷调） */
+.wz-done{background:linear-gradient(135deg,#5A6188,#383F5F)!important;color:#F4F6FC!important;}
+/* 简单分析强调 tag 文字保持蓝紫族 */
+.q-step-label,.sa-focus-tag{color:#5A6188!important;}
+/* AI summary 左边条改蓝 */
+.ai-summary{border-left-color:#5A6188!important;}
+.ai-summary h4,.paste-card h3,.match-result h4{color:#303652!important;}
+/* 圆点树图例点描边色由 JS 注入蓝阶；图例卡保持白底 */
+@media print{
+  .tree-card{background:#FFFFFF!important;}
+}
+/* ===== /PURPLE BUTTONS · 3–5 BLUE SCALE · ROUND-DOT TREE ===== */
+
+/* ============================================================================
+   PINK-PURPLE LANG BORDER · 2026-06-27（圆酱回退点）
+   圆酱：「首页、中文这里的边框不是粉紫色吗？你不要改」。
+   只恢复首页语言/「中文」区域的边框为原粉紫色系（与按钮粉紫一致），
+   其余（圆点树/蓝阶/金黄新月/双语介绍/角色端/AI 设置）一律不动。
+   粉紫：#A98AD0（常态描边） / #8E6FBE（active/focus 加深）。
+   末尾覆盖块，确保覆盖前文 .lang-pill / .lang-btn 的白色/蓝色描边。
+   ============================================================================ */
+.lang-pill,.hdr .lang-pill{border-color:rgba(169,138,208,.78)!important;}
+.hdr .lang-btn{border-color:rgba(169,138,208,.55)!important;}
+.hdr .lang-btn.active{border:1px solid #8E6FBE!important;box-shadow:inset 0 0 0 1px rgba(142,111,190,.45)!important;}
+.lang-btn:hover{border-color:#8E6FBE!important;}
+.lang-btn:focus,.lang-btn:focus-visible{outline:none!important;border-color:#8E6FBE!important;box-shadow:0 0 0 2px rgba(169,138,208,.35)!important;}
+/* ===== /PINK-PURPLE LANG BORDER ===== */
+
 </style>
+
+<style id="yuanjiang-restore-dawn-tree-frame">
+/* 圆酱校正：树框内须保留“曙光渐变色”。只恢复 .tree-card 内部底色与晨星暖色；不改语言 pill、按钮、圆点树结构、双语文案、公众号行、PDF 逻辑。 */
+.tree-card{
+  background:
+    radial-gradient(120% 90% at 18% 0%, rgba(111,119,149,.10), rgba(111,119,149,0) 55%),
+    radial-gradient(120% 100% at 88% 100%, rgba(201,165,161,.12), rgba(201,165,161,0) 58%),
+    linear-gradient(170deg, #F4F6FC 0%, #FFFFFF 46%, #FBF5F4 100%) !important;
+  border:1px solid #DCE0EE !important;
+  box-shadow:0 16px 44px rgba(48,54,82,.10) !important;
+}
+.tree-card .card-moon::after{
+  background:rgba(201,165,161,.78) !important;
+  box-shadow:0 0 4px rgba(201,165,161,.6) !important;
+}
+</style>
+<!-- yuanjiang-solid-tree-dots-no-gold: visible tree SVG round nodes are pure blue solid fill; extra gold tree dot removed; other UI untouched. -->
 </head>
 <body>
+<div class="moon-deco" aria-hidden="true"><span class="crescent"></span><span class="star"></span><span class="star2"></span></div>
+<!-- 右上角金黄色新月（圆酱最后补充） -->
+<div class="gold-moon" aria-hidden="true"></div>
 
 <!-- HEADER -->
 <div class="hdr">
   <div class="hdr-left">
     <h1>⬡ 灵台·观己 · IFM Matrix</h1>
-    <p id="hdr-sub">功能医学矩阵 worksheet · 营养师内部辅助</p>
+    <p id="hdr-sub">IFM 结构化映射 worksheet · 观察分析辅助（非诊断/非处方）</p>
   </div>
   <div class="hdr-right">
-    <button class="icon-btn" onclick="toggleSettings()" title="AI设置">⚙️</button>
+    <div class="role-pill" id="role-pill">
+      <button class="role-btn active" onclick="goScreen('landing')" id="role-home" title="首页">🏠 首页</button>
+      <button class="role-btn" onclick="goScreen('user')" id="role-user" title="用户端">用户端</button>
+      <button class="role-btn" onclick="goScreen('pro')" id="role-pro" title="营养师端">营养师端</button>
+    </div>
+    <button class="icon-btn" id="btn-settings" onclick="toggleSettings()" title="AI设置" style="display:none">⚙️</button>
     <div class="lang-pill">
       <button class="lang-btn active" onclick="setLang('zh')">中文</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
@@ -372,23 +844,69 @@ body>*:not(#print-root){display:none!important}
   <div class="settings-note" id="s-note">⚠️ API Key 仅存于页面内存，刷新即清，不写入导出报告</div>
 </div>
 
+<!-- ════════════ SCREEN: LANDING（首页 · 功能医学树）════════════ -->
+<div class="screen active" id="screen-landing">
+<div class="landing-wrap">
+  <div class="landing-hero">
+    <h2 id="lh-title">功能医学之树</h2>
+    <div class="hero-en" id="lh-en">The Functional Medicine Tree · IFM Matrix</div>
+    <p id="lh-desc">从「根—干—枝—果」整体看待健康：每个症状都长在更深的根系上。本工具把您的故事映射到 IFM 功能医学结构，辅助观察与梳理——非诊断、非处方，结论请与专业人员讨论。</p>
+  </div>
+
+  <div class="tree-card">
+    <span class="card-moon" aria-hidden="true"></span>
+    <div class="tree-svg-wrap" id="tree-svg-wrap" aria-label="功能医学树示意图"></div>
+    <div class="tree-legend" id="tree-legend"></div>
+  </div>
+
+  <div class="landing-cta">
+    <button class="cta-btn cta-user" onclick="goScreen('user')">
+      <div class="cta-icon">🌱</div>
+      <div class="cta-title" id="cta-user-t">我是用户 · 填写问卷</div>
+      <div class="cta-sub" id="cta-user-s">用分步小问题描述您的生活方式与身体感受，几分钟即可完成。</div>
+    </button>
+    <button class="cta-btn cta-pro" onclick="goScreen('pro')">
+      <div class="cta-icon">🩺</div>
+      <div class="cta-title" id="cta-pro-t">我是营养师 · 进入工作台</div>
+      <div class="cta-sub" id="cta-pro-s">病例摘要、IFM 节点打分、文本导入、AI 结构化映射、报告与数据管理。</div>
+    </button>
+  </div>
+  <div class="landing-safety" id="lh-safety">⚕ 本工具为 IFM 结构化观察辅助，<b>非诊断、非治疗、非用药/营养治疗处方</b>；所有结果需营养师终审。</div>
+</div>
+</div>
+
+<!-- ════════════ SCREEN: USER（用户端 · 问卷向导）════════════ -->
+<div class="screen" id="screen-user">
+<div class="wizard-wrap">
+  <div class="wizard-head">
+    <button class="wizard-back" onclick="goScreen('landing')" id="wz-back">← 返回首页</button>
+    <div class="wizard-title" id="wz-title">健康自填问卷</div>
+  </div>
+  <div class="step-bar" id="step-bar"></div>
+  <div id="wizard-body"></div>
+</div>
+</div>
+
+<!-- ════════════ SCREEN: PRO（营养师端 · 工作台）════════════ -->
+<div class="screen" id="screen-pro">
+
 <!-- PATIENT BAR -->
 <div class="patient-bar">
-  <div class="pf"><label id="l-name">姓名 Name</label><input type="text" id="f-name" placeholder="患者姓名"></div>
+  <div class="pf"><label id="l-name">称呼 Name</label><input type="text" id="f-name" placeholder="记录对象（化名/编号）"></div>
   <div class="pf"><label id="l-date">日期 Date</label><input type="date" id="f-date"></div>
   <div class="pf" style="min-width:180px"><label id="l-cc">主诉 CC</label><input type="text" id="f-cc" placeholder="主要症状"></div>
 </div>
 
-<!-- TAB BAR -->
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('matrix')" id="tab-matrix">📋 矩阵填写</button>
-  <button class="tab-btn" onclick="switchTab('paste')" id="tab-paste">🔍 粘贴资料 / 初筛</button>
+<!-- TAB BAR (pro sub-nav) -->
+<div class="tab-bar pro-subnav">
+  <button class="tab-btn active" onclick="switchTab('paste')" id="tab-paste">📋 文本导入（快速）</button>
+  <button class="tab-btn" onclick="switchTab('matrix')" id="tab-matrix">🗂 矩阵编辑</button>
 </div>
 
 <!-- MATRIX TAB -->
 <div id="tc-matrix">
 <div class="sheet">
-  <div class="sheet-title" id="sheet-title"><b>Physiology and Function</b> · 组织患者的临床失衡 Organizing the Patient's Clinical Imbalances</div>
+  <div class="sheet-title" id="sheet-title"><b>Physiology and Function</b> · 将记录映射到 IFM 结构 Organizing Observations into the IFM Structure</div>
   <div class="worksheet">
     <!-- LEFT: ATM STORY -->
     <div class="story-col">
@@ -426,14 +944,14 @@ body>*:not(#print-root){display:none!important}
   </div>
 
   <div class="sheet-footer">
-    <span id="sf-attr">基于 IFM 功能医学矩阵结构 · 仅供临床参考，不作诊断或治疗</span>
+    <span id="sf-attr">基于 IFM 矩阵结构的观察映射 · 非诊断 / 非处方 · 结论请与专业人员讨论</span>
     <span>© Institute for Functional Medicine（结构参考）</span>
   </div>
 </div>
 
 <!-- AI Summary -->
 <div class="ai-summary" id="ai-summary">
-  <h4 id="ai-sum-title">📊 AI 临床分析</h4>
+  <h4 id="ai-sum-title">📊 IFM 结构化映射（观察摘要）</h4>
   <p id="ai-sum-text"></p>
 </div>
 </div>
@@ -442,15 +960,25 @@ body>*:not(#print-root){display:none!important}
 <div id="tc-paste" style="display:none">
 <div class="paste-wrap">
   <div class="paste-card">
-    <h3 id="pt-title">📋 粘贴患者资料</h3>
-    <p id="pt-desc">粘贴主诉、现病史、检验报告等任意文字。本地关键词初筛无需联网；AI 分析需在 ⚙️ 设置中配置接口。</p>
-    <textarea class="paste-textarea" id="paste-input" placeholder="例：患者女，42岁，慢性疲劳2年，腹胀，便秘，TSH偏高，MTHFR C677T杂合子，高脂血症，睡眠差，工作压力大…"></textarea>
-    <button class="analyze-btn" onclick="runKeywordScan()" id="btn-scan">🔍 关键词初筛（本地）</button>
-    <button class="analyze-btn" onclick="runAI()" id="btn-ai" style="margin-top:6px;background:linear-gradient(135deg,#5E6B72,#7E8A86)">✨ AI 分析（需配置接口）</button>
+    <h3 id="pt-title">📋 粘贴观察记录（可批量）</h3>
+    <p id="pt-desc">粘贴一位或多位客户的观察记录（主观叙述 / 既往描述 / 报告文字皆可）。<b>本地批量映射</b>支持三种格式：① 多条文本用 <b>---</b> 分隔行 / 空行+编号 / <b>Case/案例</b> 标记；② <b>CSV/TSV</b>（首行表头，含 姓名/text/记录 等列）；③ <b>JSON</b>（数组或 {cases:[…]}）。本地批量与关键词初筛均无需联网；AI 结构化映射需在 ⚙️ 设置中配置接口。所有输出仅为结构映射与观察，非诊断、非处方。</p>
+    <textarea class="paste-textarea" id="paste-input" placeholder="例（多客户文本，用 --- 分隔）：&#10;姓名：A001 女42岁 慢性疲劳 腹胀 便秘 高脂血症 睡眠差&#10;---&#10;姓名：B002 男50岁 关节痛 反复感冒 压力大&#10;&#10;例（CSV）：&#10;姓名,记录&#10;A001,慢性疲劳 腹胀 便秘 高脂血症&#10;B002,关节痛 反复感冒 焦虑&#10;&#10;例（JSON）：&#10;[{&quot;name&quot;:&quot;A001&quot;,&quot;text&quot;:&quot;慢性疲劳 腹胀 高脂血症&quot;}]"></textarea>
+    <div style="text-align:right;margin:4px 0 2px"><button class="apply-btn" style="width:auto;display:inline-block;padding:6px 12px;min-height:32px;font-size:12px" onclick="document.getElementById('import-text-file').click()" id="btn-import-text" title="也可直接导入一个 .txt 文本文件">📄 导入文本文件</button></div>
+    <input type="file" id="import-text-file" accept=".txt,text/plain" style="display:none" onchange="loadTextFile(this)">
+    <button class="analyze-btn" onclick="runLocalBatch()" id="btn-localbatch">📊 本地批量映射（多客户 · 无需联网）</button>
+    <button class="analyze-btn" onclick="runKeywordScan()" id="btn-scan" style="margin-top:6px;background:var(--paper-2);color:var(--sage);border:1px solid var(--border)">🔍 关键词初筛（单条 · 本地）</button>
+    <button class="analyze-btn" onclick="runAI()" id="btn-ai" style="margin-top:6px;background:linear-gradient(135deg,#5E6B72,#7E8A86)">✨ IFM 结构化映射（批量 · 需配置接口）</button>
+  </div>
+  <div id="batch-output" style="display:none">
+    <div class="paste-card">
+      <h3 id="pt-batch">批量映射结果</h3>
+      <p id="pt-batch-hint" style="font-size:11px;color:var(--ink-light)">每条记录独立映射为 IFM worksheet 四块。点击「应用到矩阵」可把某条载入上方矩阵视图编辑/导出。</p>
+      <div id="batch-list"></div>
+    </div>
   </div>
   <div id="match-output" style="display:none">
     <div class="paste-card">
-      <h3 id="pt-result">识别结果</h3>
+      <h3 id="pt-result">关键词初筛结果</h3>
       <div class="highlighted-text" id="hl-text"></div>
       <div class="match-result">
         <h4 id="pt-nodes">匹配节点</h4>
@@ -462,16 +990,32 @@ body>*:not(#print-root){display:none!important}
 </div>
 </div>
 
-<div class="footer" id="footer-text">灵台·观己 · 营养师内部辅助工具 · 仅供临床参考，不作诊断或治疗</div>
+<!-- ADVANCED DATA MANAGEMENT (营养师端 · 折叠在高级区，用户端不需要懂 JSON) -->
+<div class="data-mgmt">
+  <details id="dm-details">
+    <summary id="dm-summary">高级 · 数据管理（保存 / 恢复进度）</summary>
+    <div class="dm-body">
+      <p class="dm-note" id="dm-note">把当前工作进度保存为本地 JSON 文件，下次可恢复继续。<b>导出文件不包含任何 API Key。</b></p>
+      <div class="dm-row">
+        <button class="dm-btn" onclick="saveStateJSON()" id="dm-save">💾 保存进度（JSON）</button>
+        <button class="dm-btn" onclick="document.getElementById('import-file').click()" id="dm-load">📂 恢复进度（JSON）</button>
+      </div>
+    </div>
+  </details>
+</div>
 
-<div class="creator-footer"><span class="footer-watermark">灵台 × 圆酱</span><br>创建者：王润圆 昆明医科大学营养与食品卫生学硕士 × 灵台AI · 灵台地址：<a href="https://github.com/Lingtai-AI/lingtai" target="_blank" rel="noopener">https://github.com/Lingtai-AI/lingtai</a></div>
+</div><!-- /#screen-pro -->
 
-<!-- BOTTOM BAR -->
-<div class="bottom-bar">
+<div class="footer" id="footer-text">灵台·观己 · IFM 结构化映射辅助工具 · 非诊断 / 非处方 · 结论请与专业人员讨论</div>
+
+<div class="creator-footer"><span class="footer-watermark">灵台 × 圆酱</span><br>创建者：王润圆 昆明医科大学营养与食品卫生学硕士 × 灵台AI<span class="bi-en">Creator: Wang Runyuan · M.Sc. in Nutrition &amp; Food Hygiene, Kunming Medical University × Lingtai AI</span><span class="creator-follow">关注我：公众号 圆酱说营养<span class="cf-en">Follow me: WeChat Official Account 圆酱说营养 (Yuanjiang Talks Nutrition)</span></span>灵台地址：<a href="https://github.com/Lingtai-AI/lingtai" target="_blank" rel="noopener">https://github.com/Lingtai-AI/lingtai</a><span class="bi-en">Lingtai repo: https://github.com/Lingtai-AI/lingtai</span></div>
+
+<!-- BOTTOM BAR (营养师端工作台操作；用户端/首页隐藏) -->
+<div class="bottom-bar" id="bottom-bar" style="display:none">
   <button class="bb-btn secondary" onclick="resetAll()" id="bb-reset">🔄 重置</button>
-  <button class="bb-btn secondary" onclick="switchTab('paste')" id="bb-scan">🔍 初筛</button>
   <button class="bb-btn primary" onclick="printReport()" id="bb-export">📄 导出PDF</button>
 </div>
+<input type="file" id="import-file" accept="application/json,.json" style="display:none" onchange="loadStateJSON(this)">
 
 <script>
 // ═══════════════ DATA ═══════════════
@@ -495,13 +1039,13 @@ var NODES = [
   {id:'energy',icon:'⚡',cell:'cell-energy',
    zh:'能量生成',en:'Energy',
    sub_zh:'线粒体 · 氧化压力 · 供能 · 脂肪酸β氧化',sub_en:'Mitochondria, Oxidative Stress, Energy Regulation, Fatty-acid β-oxidation',
-   items_zh:['慢性疲劳/精力耗竭','线粒体功能低下','运动不耐受','脑雾/认知迟缓','肌肉无力','睡后不解乏','血糖代谢异常','脂肪酸β氧化障碍','氨基酸/烟酸缺乏'],
-   items_en:['Chronic Fatigue','Mitochondrial Dysfunction','Exercise Intolerance','Brain Fog','Muscle Weakness','Unrefreshing Sleep','Glucose Metabolism Issues','Impaired Fatty-acid β-oxidation','Amino Acid Deficiency']},
+   items_zh:['慢性疲劳/精力耗竭','供能不足/易疲劳','运动不耐受','脑雾/认知迟缓','肌肉无力','睡后不解乏','血糖波动相关感受','活动后恢复慢','食欲/营养摄入不足'],
+   items_en:['Chronic Fatigue','Low Energy / Easily Tired','Exercise Intolerance','Brain Fog','Muscle Weakness','Unrefreshing Sleep','Blood-sugar-related Feelings','Slow Recovery After Activity','Low Appetite / Intake']},
   {id:'communication',icon:'📡',cell:'cell-comm',
    zh:'传递系统',en:'Communication',
    sub_zh:'内分泌 · 神经递质 · 免疫信使',sub_en:'Endocrine, Neurotransmitters, Immune Messengers',
-   items_zh:['激素失衡','甲状腺功能异常','肾上腺疲劳/皮质醇异常','神经递质失衡','胰岛素抵抗','月经紊乱/不孕'],
-   items_en:['Hormone Imbalance','Thyroid Dysfunction','Adrenal Fatigue','Neurotransmitter Imbalance','Insulin Resistance','Menstrual Issues']},
+   items_zh:['激素相关感受波动','怕冷怕热/代谢变化','压力反应明显/精力波动','情绪与睡眠相关感受','血糖相关感受波动','月经/生理周期不规律'],
+   items_en:['Hormone-related Fluctuations','Cold/Heat Intolerance, Metabolic Change','Strong Stress Response / Energy Swings','Mood & Sleep-related Feelings','Blood-sugar-related Feelings','Irregular Menstrual Cycle']},
   {id:'transport',icon:'🫀',cell:'cell-transport',
    zh:'运输/转运',en:'Transport',
    sub_zh:'心血管 · 淋巴 · 脂质运输/血脂代谢',sub_en:'Cardiovascular, Lymphatic, Lipid Transport/Lipid Metabolism',
@@ -531,6 +1075,55 @@ var LIFESTYLE = [
   {id:'relationships',icon:'🤝',zh:'人际社交',en:'Relationships'}
 ];
 
+// ───────── v2 功能医学树 tier 元数据（首页示意图 + 图例）─────────
+// 根=ATM 前因/触发/介导；干=MES 中心叙事；枝=7 生理节点；果=Lifestyle/改善/复核
+// tier 标记用深色书法字（根/干/枝/果），不用卡通 emoji；配色点沿用品牌族。
+var TREE_TIERS = [
+  {key:'root',icon:'根',color:'#383F5F',          /* 蓝阶 2 */
+   zh:'根 · 深层原因',en:'Roots · Antecedents / Triggers / Mediators',
+   note_zh:'前置因素（基因/早期环境）· 触发事件 · 介导/持续因素',
+   note_en:'Antecedents (genetics / early environment) · Triggering events · Mediators / perpetuators'},
+  {key:'trunk',icon:'干',color:'#303652',         /* 蓝阶 1（最深） */
+   zh:'干 · 中心叙事',en:'Trunk · Mental · Emotional · Spiritual (MES)',
+   note_zh:'把故事串起来的中轴：心理 · 情绪 · 精神',
+   note_en:'The central axis tying the story together: mental · emotional · spiritual'},
+  {key:'branch',icon:'枝',color:'#5A6188',        /* 蓝阶 3 */
+   zh:'枝 · 七大生理',en:'Branches · 7 Physiology Nodes',
+   note_zh:'同化 · 防御修复 · 能量 · 传递 · 转运 · 转化排除 · 结构',
+   note_en:'Assimilation · Defense/Repair · Energy · Communication · Transport · Biotransformation · Structure'},
+  {key:'fruit',icon:'果',color:'#E2B85A',         /* 金黄点睛（仅图例 1 点） */
+   zh:'果 · 改善路径',en:'Fruit · Lifestyle / Next steps / Review',
+   note_zh:'可改善的生活方式 · 生活回环下一步 · 专业复核建议',
+   note_en:'Modifiable lifestyle · Lifestyle-loop next step · Professional review'}
+];
+
+// ───────── v2 用户问卷症状映射 ─────────
+// 每条 = 一句白话症状 → 落到既有 node 的 item 索引（toggle 时把该 item 评分设为「中=2」）。
+// 目的：用户端不需懂 IFM 术语；营养师端打开矩阵即可看到已勾选项。
+var WIZARD_SYMPTOMS = [
+  {node:'assimilation',icon:'🍃',zh:'消化吸收',q:[
+    {t:'经常腹胀 / 胀气',i:1},{t:'容易腹泻或便秘',i:2},{t:'反酸 / 烧心',i:3},
+    {t:'吃某些食物不舒服',i:4},{t:'消化不太好',i:0}]},
+  {node:'energy',icon:'⚡',zh:'精力与能量',q:[
+    {t:'长期疲劳 / 没精力',i:0},{t:'睡了还是累',i:5},{t:'脑雾 / 反应变慢',i:3},
+    {t:'稍动就累',i:2},{t:'肌肉容易没力',i:4}]},
+  {node:'mes',icon:'🧠',zh:'情绪与睡眠',q:[
+    {t:'情绪难以平复',i:1},{t:'容易焦虑 / 紧张',i:3},{t:'长期低落 / 提不起劲',i:2},
+    {t:'入睡难 / 睡不安稳',i:5},{t:'注意力 / 记忆下降',i:0}]},
+  {node:'communication',icon:'📡',zh:'内分泌与激素',q:[
+    {t:'怕冷 / 怕热 / 代谢异常',i:1},{t:'压力大时身体反应明显',i:2},
+    {t:'血糖容易波动',i:4},{t:'月经 / 生理周期不规律',i:5}]},
+  {node:'transport',icon:'🫀',zh:'循环与血脂',q:[
+    {t:'心悸 / 胸闷',i:0},{t:'血压偏高或偏低',i:1},{t:'血脂 / 甘油三酯偏高',i:2},
+    {t:'手脚冰凉 / 循环差',i:5}]},
+  {node:'defense',icon:'🛡️',zh:'免疫与炎症',q:[
+    {t:'容易反复感冒 / 感染',i:0},{t:'过敏 / 哮喘 / 湿疹',i:2},{t:'伤口愈合慢',i:3}]},
+  {node:'structure',icon:'🦴',zh:'肌肉与骨骼',q:[
+    {t:'关节痛 / 僵硬',i:0},{t:'肌肉酸痛 / 抽筋',i:1},{t:'姿势 / 腰背问题',i:3}]},
+  {node:'biotransformation',icon:'🔄',zh:'解毒与代谢',q:[
+    {t:'对气味 / 化学品敏感',i:0},{t:'排泄不畅',i:3},{t:'已知 MTHFR / 甲基化问题',i:6}]}
+];
+
 var KEYWORDS = {
   assimilation:['消化','腹胀','胀气','腹泻','便秘','反流','胃酸','反酸','食物不耐','肠道','菌群','益生菌','肠漏','IBS','肠易激','腹痛','胃痛','呕吐','恶心','吸收','嗳气','胀满','排便'],
   defense:['感染','免疫','炎症','过敏','哮喘','湿疹','荨麻疹','自身免疫','类风湿','狼疮','sIgA','IgG','IgE','CRP','C反应蛋白','白介素','TNF','伤口','愈合','感冒','反复','慢性感染'],
@@ -552,7 +1145,9 @@ var PRESETS = {
 var lang='zh';
 var apiKey='';
 var ALL_NODES=NODES.concat([MES]); // mes participates in scoring/items but renders as center core
-var state={ant:[],tri:[],med:[],nodeItems:{},nodeScores:{},lifestyle:{},scanResult:null};
+var APP_VERSION='ifm-webapp-v1';
+var state={ant:[],tri:[],med:[],nodeItems:{},nodeScores:{},lifestyle:{},scanResult:null,
+  pasteText:'',batch:[],loop:null}; // batch = array of mapped cases; loop = ④ block of applied case
 ALL_NODES.forEach(function(n){
   state.nodeItems[n.id]=[];
   state.nodeScores[n.id]={};
@@ -561,8 +1156,8 @@ LIFESTYLE.forEach(function(l){state.lifestyle[l.id]={score:0,note:''}});
 
 // ═══════════════ I18N ═══════════════
 var T={
-  zh:{hdrSub:'功能医学矩阵 worksheet · 营养师内部辅助',
-    tabMatrix:'📋 矩阵填写',tabPaste:'🔍 粘贴资料 / 初筛',
+  zh:{hdrSub:'IFM 结构化映射 worksheet · 观察分析辅助（非诊断/非处方）',
+    tabPaste:'📋 粘贴文本（主入口）',tabMatrix:'🗂 矩阵编辑',
     scTitle:'复述您的故事',scTitleEn:'Retelling the Patient’s Story',
     lName:'姓名 Name',lDate:'日期 Date',lCC:'主诉 CC',
     lAnt:'前置因素',lTri:'触发因素',lMed:'介导因素',
@@ -571,24 +1166,76 @@ var T={
     lsTitle:'可改善的生活方式',lsTitleEn:'Modifiable Personal Lifestyle Factors',
     lsSev:['好','一般','差','很差'],
     lsMethod:'改善方法',lsMethodPh:'填写改善方法，如：每日步行30分钟、晚餐减油、睡前放松…',
-    ptTitle:'📋 粘贴患者资料',
-    ptDesc:'粘贴主诉、现病史、检验报告等任意文字。本地关键词初筛无需联网；AI 分析需在 ⚙️ 设置中配置接口。',
-    btnScan:'🔍 关键词初筛（本地）',btnAI:'✨ AI 分析（需配置接口）',
-    ptResult:'识别结果',ptNodes:'匹配节点',btnApply:'→ 应用到矩阵',
-    bbReset:'🔄 重置',bbScan:'🔍 初筛',bbExport:'📄 导出PDF',
+    ptTitle:'📋 粘贴观察记录（可批量）',
+    ptDesc:'粘贴一位或多位客户的观察记录。本地批量映射支持三种格式：① 多条文本用 --- / 空行+编号 / Case·案例 标记分隔；② CSV/TSV（首行表头，含 姓名/text/记录 等列）；③ JSON（数组或 {cases:[…]}）。本地批量与关键词初筛均无需联网；AI 结构化映射需在 ⚙️ 设置中配置接口。所有输出仅为结构映射与观察，非诊断、非处方。',
+    btnScan:'🔍 关键词初筛（单条 · 本地）',btnAI:'✨ IFM 结构化映射（批量 · 需配置接口）',btnImportText:'📄 导入文本文件',
+    btnLocalBatch:'📊 本地批量映射（多客户 · 无需联网）',
+    ptResult:'关键词初筛结果',ptNodes:'匹配节点',btnApply:'→ 应用到矩阵',
+    ptBatch:'批量映射结果',ptBatchHint:'每条记录独立映射为 IFM worksheet 四块。点击「应用到矩阵」可把某条载入上方矩阵视图编辑/导出。',
+    bbReset:'🔄 重置',bbSave:'💾 保存进度',bbLoad:'📂 恢复进度',bbScan:'🔍 初筛',bbExport:'📄 导出PDF',
+    caseApply:'→ 应用到矩阵',caseTitle:'记录',
+    blkAtm:'① ATM 故事线',blkNodes:'② 7 生理节点 + MES',blkLifestyle:'③ Lifestyle 杠杆',blkLoop:'④ 红线 / 需专业复核 / 生活回环下一步',
+    saveOk:'已导出 JSON 状态文件（含输入、批量结果、时间、版本）。API Key 不会写入。',
+    loadOk:'已导入 JSON 状态。',loadFail:'导入失败：文件不是有效的本工具 JSON 状态。',
     sTitle:'⚙️ AI 接口设置（OpenAI 兼容协议）',sUrlLabel:'Base URL',sModelLabel:'模型名称',
     sKeyLabel:'API Key',sSave:'保存设置',sTest:'测试连接',pCustom:'自定义',
     sNote:'⚠️ API Key 仅存于页面内存，刷新即清，不写入导出报告',
     sevLabels:['无','轻','中','重'],
-    aiSumTitle:'📊 AI 临床分析',
-    sfAttr:'基于 IFM 功能医学矩阵结构 · 仅供临床参考，不作诊断或治疗',
-    footer:'灵台·观己 · 营养师内部辅助工具 · 仅供临床参考，不作诊断或治疗',
+    aiSumTitle:'📊 IFM 结构化映射（观察摘要）',
+    sfAttr:'基于 IFM 矩阵结构的观察映射 · 非诊断 / 非处方 · 结论请与专业人员讨论',
+    footer:'灵台·观己 · IFM 结构化映射辅助工具 · 非诊断 / 非处方 · 结论请与专业人员讨论',
     noMatch:'未找到关键词匹配，请手动填写矩阵',
     nodeAdd:'＋ 添加条目',confirmReset:'确定清空所有数据？',
-    analyzingText:'AI 分析中…',aiNoKey:'请先在 ⚙️ 设置中填写 Base URL 和 API Key',
-    aiError:'AI 分析失败，已回退到关键词初筛'},
-  en:{hdrSub:'Functional Medicine Matrix worksheet · Clinical Reference',
-    tabMatrix:'📋 Matrix',tabPaste:'🔍 Paste / Scan',
+    analyzingText:'映射中…',aiNoKey:'请先在 ⚙️ 设置中填写 Base URL 和 API Key',
+    aiError:'结构化映射失败，已回退到本地关键词初筛',
+    roleHome:'🏠 首页',roleUser:'用户端',rolePro:'营养师端',
+    lhTitle:'功能医学之树',lhEn:'The Functional Medicine Tree · IFM Matrix',
+    lhDesc:'从「根—干—枝—果」整体看待健康：每个症状都长在更深的根系上。本工具把您的故事映射到 IFM 功能医学结构，辅助观察与梳理——非诊断、非处方，结论请与专业人员讨论。',
+    ctaUserT:'我是用户 · 填写问卷',ctaUserS:'用分步小问题描述您的生活方式与身体感受，几分钟即可完成。',
+    ctaProT:'我是营养师 · 进入工作台',ctaProS:'病例摘要、IFM 节点打分、文本导入、AI 结构化映射、报告与数据管理。',
+    lhSafety:'⚕ 本工具为 IFM 结构化观察辅助，非诊断、非治疗、非用药/营养治疗处方；所有结果需营养师终审。',
+    wzBack:'← 返回首页',wzTitle:'健康自填问卷',
+    wzPrev:'上一步',wzNext:'下一步',wzDone:'完成并提交',
+    stepBasicLabel:'第 1 步 / STEP 1',stepBasicTitle:'基本信息',
+    stepBasicDesc:'先简单了解一下您（可用化名或编号，无需真实姓名）。',
+    qNick:'称呼（化名/编号）',qNickPh:'例如：小圆 / U001',qAgeSex:'年龄 · 性别（可选）',qAgeSexPh:'例如：42 岁 女',
+    qMainFeel:'最想改善的感受（可选）',qMainFeelPh:'例如：总是很累、睡不好、容易腹胀…',
+    stepLifeLabel:'第 2 步 / STEP 2',stepLifeTitle:'生活方式',
+    stepLifeDesc:'凭直觉给最近一段时间的状态打个分，没有标准答案。',
+    lsScale:['很好','还行','不太好','差'],
+    stepSymLabel:'第 3 步 / STEP 3',stepSymTitle:'身体感受 / 症状',
+    stepSymDesc:'最近常出现的，点一下选中即可；没有的不用点。这些只是帮助梳理方向，不是诊断。',
+    qNote:'还想补充的（可选）',qNotePh:'任何想让营养师知道的情况…',
+    thanksTitle:'问卷已提交',
+    thanksDesc:'您的填写已整理进 IFM 结构。营养师会在工作台中复核、补充并生成报告。再次提醒：本工具非诊断、非处方，请以营养师的专业判断为准。',
+    thanksToPro:'营养师：查看工作台 →',thanksRestart:'重新填写',
+    dmSummary:'高级 · 数据管理（保存 / 恢复进度）',
+    dmNote:'把当前工作进度保存为本地 JSON 文件，下次可恢复继续。导出文件不包含任何 API Key。',
+    dmSave:'💾 保存进度（JSON）',dmLoad:'📂 恢复进度（JSON）',
+    treeLegendHead:'',bbExport2:'📄 导出PDF',
+    // v3 用户端结果
+    resTitle:'我的功能医学画像',
+    resSubmitted:'问卷已提交，下面是根据您的填写整理出的结构化梳理。',
+    resMxTitle:'我的 IFM 矩阵（简版）',
+    resMxHint:'按 IFM 七大生理 + 中心情志，把您勾选的感受归位。仅作整理梳理，不是体检分数、不是诊断。',
+    resMxNone:'未勾选',
+    resSaTitle:'简单分析（自动整理）',
+    resSaHint:'以下为本地自动整理的观察重点，措辞保守、不下结论；请与营养师/医生进一步讨论。',
+    resSaFocus:'重点关注方向',
+    resSaCalm:'您本次勾选较少。保持规律作息、均衡饮食与适度活动通常有帮助；如有持续不适，建议与专业人员沟通。',
+    resSaLsTitle:'生活方式可先着手的方向',
+    resSaNote:'⚕ 本整理为结构化观察辅助，非诊断、非治疗、非用药/营养治疗处方；请以专业人员判断为准。',
+    resAiTitle:'✨ AI 分析（可选）',
+    resAiHint:'若已在营养师端 ⚙️ 配置接口，可生成一段更连贯的 AI 结构化整理（仍为观察、非诊断/处方）。未配置时此处仅显示上面的本地简单分析。',
+    resAiBtn:'✨ 生成 AI 分析',resAiRun:'分析中…',
+    resAiNoKey:'尚未配置 AI 接口。可请营养师在「营养师端 → ⚙️ 设置」中配置后再试；当前可先看上方的本地简单分析。',
+    resAiErr:'AI 分析未成功，已为您保留本地简单分析。',
+    resToPro:'交给营养师复核 →',resPrint:'📄 导出我的报告(PDF)',resRestart:'重新填写',
+    lvLabel:['未见勾选','少量关注','较多关注'],
+    saFocusLine:'您在以下方向勾选较多，建议优先与专业人员沟通梳理：',
+    saObserveLine:'其余有勾选但数量较少的方向，可一并留意：'},
+  en:{hdrSub:'IFM Structured Mapping worksheet · Observation aid (not diagnostic/prescriptive)',
+    tabPaste:'📋 Paste text (main)',tabMatrix:'🗂 Matrix editor',
     scTitle:'Retelling the Patient’s Story',scTitleEn:'复述您的故事',
     lName:'Name 姓名',lDate:'Date 日期',lCC:'CC 主诉',
     lAnt:'Antecedents',lTri:'Triggering Events',lMed:'Mediators/Perpetuators',
@@ -597,24 +1244,78 @@ var T={
     lsTitle:'Modifiable Personal Lifestyle Factors',lsTitleEn:'可改善的生活方式',
     lsSev:['Good','Fair','Poor','Bad'],
     lsMethod:'Improvement plan',lsMethodPh:'Enter improvement actions, e.g. daily walk, lighter dinner, bedtime relaxation…',
-    ptTitle:'📋 Paste Clinical Notes',
-    ptDesc:'Paste any clinical text. Local keyword scan needs no internet; AI analysis requires API config in ⚙️ Settings.',
-    btnScan:'🔍 Keyword Scan (local)',btnAI:'✨ AI Analysis (API required)',
-    ptResult:'Results',ptNodes:'Matched Nodes',btnApply:'→ Apply to Matrix',
-    bbReset:'🔄 Reset',bbScan:'🔍 Scan',bbExport:'📄 导出PDF',
+    ptTitle:'📋 Paste Observation Records (batch ok)',
+    ptDesc:'Paste one or more clients’ observation records. Local batch mapping supports three formats: (1) multi-record text split by --- / blank-line+number / Case markers; (2) CSV/TSV (header row with name/text/record columns); (3) JSON (array or {cases:[…]}). Local batch and keyword scan need no internet; AI structured mapping requires API config in ⚙️ Settings. All output is structural mapping & observation only — not diagnosis or prescription.',
+    btnScan:'🔍 Keyword Scan (single · local)',btnAI:'✨ IFM Structured Mapping (batch · API required)',btnImportText:'📄 Import text file',
+    btnLocalBatch:'📊 Local batch mapping (multi-client · offline)',
+    ptResult:'Keyword Scan Result',ptNodes:'Matched Nodes',btnApply:'→ Apply to Matrix',
+    ptBatch:'Batch Mapping Results',ptBatchHint:'Each record is mapped independently into the IFM worksheet 4 blocks. "Apply to Matrix" loads one into the matrix view above for editing/export.',
+    bbReset:'🔄 Reset',bbSave:'💾 Save progress',bbLoad:'📂 Restore',bbScan:'🔍 Scan',bbExport:'📄 导出PDF',
+    caseApply:'→ Apply to Matrix',caseTitle:'Record',
+    blkAtm:'① ATM Storyline',blkNodes:'② 7 Physiology Nodes + MES',blkLifestyle:'③ Lifestyle Levers',blkLoop:'④ Red flags / Needs professional review / Lifestyle-loop next step',
+    saveOk:'Exported JSON state file (input, batch results, time, version). API Key is never written.',
+    loadOk:'JSON state imported.',loadFail:'Import failed: file is not a valid state JSON for this tool.',
     sTitle:'⚙️ AI Settings (OpenAI-compatible)',sUrlLabel:'Base URL',sModelLabel:'Model Name',
     sKeyLabel:'API Key',sSave:'Save',sTest:'Test',pCustom:'Custom',
     sNote:'⚠️ API Key is memory-only, cleared on refresh, never exported',
     sevLabels:['None','Mild','Mod','Sev'],
-    aiSumTitle:'📊 AI Clinical Analysis',
-    sfAttr:'Based on the IFM Functional Medicine Matrix structure · For clinical reference only',
-    footer:'Lingtai · Guanji · For clinical reference only · Not a diagnostic tool',
+    aiSumTitle:'📊 IFM Structured Mapping (observation summary)',
+    sfAttr:'Observation mapping based on the IFM Matrix structure · Not diagnostic / not prescriptive · Discuss conclusions with a professional',
+    footer:'Lingtai · Guanji · IFM structured-mapping aid · Not diagnostic / not prescriptive · Discuss with a professional',
     noMatch:'No keyword matches found. Please fill matrix manually.',
     nodeAdd:'＋ Add Item',confirmReset:'Reset all data?',
-    analyzingText:'AI analyzing…',aiNoKey:'Please configure Base URL and API Key in ⚙️ Settings first',
-    aiError:'AI analysis failed, fell back to keyword scan'}
+    analyzingText:'Mapping…',aiNoKey:'Please configure Base URL and API Key in ⚙️ Settings first',
+    aiError:'Structured mapping failed, fell back to local keyword scan',
+    roleHome:'🏠 Home',roleUser:'User',rolePro:'Practitioner',
+    lhTitle:'The Functional Medicine Tree',lhEn:'IFM Matrix · Roots → Trunk → Branches → Fruit',
+    lhDesc:'See health as a tree — every symptom grows from deeper roots. This tool maps your story onto the IFM functional-medicine structure to aid observation and organization — not diagnosis or prescription; discuss conclusions with a professional.',
+    ctaUserT:'I am a user · Fill the questionnaire',ctaUserS:'Describe your lifestyle and how your body feels through short step-by-step questions — a few minutes.',
+    ctaProT:'I am a practitioner · Open workbench',ctaProS:'Case summary, IFM node scoring, text import, AI structured mapping, report & data management.',
+    lhSafety:'⚕ This is an IFM structured-observation aid — not diagnosis, treatment, or medication/medical-nutrition prescription; all results require practitioner final review.',
+    wzBack:'← Home',wzTitle:'Self-report questionnaire',
+    wzPrev:'Back',wzNext:'Next',wzDone:'Finish & submit',
+    stepBasicLabel:'STEP 1',stepBasicTitle:'Basic info',
+    stepBasicDesc:'A quick intro (an alias or code is fine — no real name needed).',
+    qNick:'Alias / code',qNickPh:'e.g. Yuan / U001',qAgeSex:'Age · Sex (optional)',qAgeSexPh:'e.g. 42, female',
+    qMainFeel:'What you most want to improve (optional)',qMainFeelPh:'e.g. always tired, poor sleep, bloating…',
+    stepLifeLabel:'STEP 2',stepLifeTitle:'Lifestyle',
+    stepLifeDesc:'Rate your recent state by gut feeling — there are no right answers.',
+    lsScale:['Good','OK','Not great','Poor'],
+    stepSymLabel:'STEP 3',stepSymTitle:'Symptoms / how you feel',
+    stepSymDesc:'Tap any that are frequent lately; skip the rest. These only help organize direction — they are not a diagnosis.',
+    qNote:'Anything to add (optional)',qNotePh:'Anything you want the practitioner to know…',
+    thanksTitle:'Submitted',
+    thanksDesc:'Your answers have been organized into the IFM structure. A practitioner will review, supplement and generate the report. Reminder: this tool is not diagnostic or prescriptive — defer to the practitioner’s judgment.',
+    thanksToPro:'Practitioner: open workbench →',thanksRestart:'Start over',
+    dmSummary:'Advanced · Data management (save / restore)',
+    dmNote:'Save current progress as a local JSON file to resume later. The exported file contains no API Key.',
+    dmSave:'💾 Save (JSON)',dmLoad:'📂 Restore (JSON)',
+    treeLegendHead:'',bbExport2:'📄 Export PDF',
+    // v3 user-end result
+    resTitle:'My functional-medicine picture',
+    resSubmitted:'Submitted. Below is a structured organization based on what you filled in.',
+    resMxTitle:'My IFM matrix (simple)',
+    resMxHint:'Your selected feelings, organized into the 7 IFM physiology nodes + MES core. For organization only — not a checkup score, not a diagnosis.',
+    resMxNone:'none selected',
+    resSaTitle:'Simple analysis (auto-organized)',
+    resSaHint:'A locally auto-organized list of observation focuses — worded conservatively, drawing no conclusions; please discuss further with a dietitian/doctor.',
+    resSaFocus:'Focus directions',
+    resSaCalm:'You selected relatively few items. Regular routines, balanced diet and moderate activity usually help; if discomfort persists, consider talking to a professional.',
+    resSaLsTitle:'Lifestyle directions to start with',
+    resSaNote:'⚕ This is a structured-observation aid — not diagnosis, treatment, or medication/medical-nutrition prescription; defer to a professional.',
+    resAiTitle:'✨ AI analysis (optional)',
+    resAiHint:'If an API is configured in the practitioner ⚙️ Settings, you can generate a more cohesive AI organization (still observation, not diagnosis/prescription). Without config, only the local simple analysis above is shown.',
+    resAiBtn:'✨ Generate AI analysis',resAiRun:'Analyzing…',
+    resAiNoKey:'AI is not configured yet. Ask the practitioner to set it up under "Practitioner → ⚙️ Settings"; for now see the local simple analysis above.',
+    resAiErr:'AI analysis did not succeed; your local simple analysis is kept.',
+    resToPro:'Send to practitioner →',resPrint:'📄 Export my report (PDF)',resRestart:'Start over',
+    lvLabel:['none','a few','several'],
+    saFocusLine:'You marked more items in these directions — consider discussing them with a professional first:',
+    saObserveLine:'Other directions with a few marks worth keeping an eye on:'}
 };
 function t(k){return T[lang][k]||k}
+// 介绍/说明类双语 HTML：中文 + 下接英文小字（始终同时可见，不随语言切换只显示一种）。
+function tb(k){var zh=T.zh[k],en=T.en[k];if(zh&&en)return zh+'<span class="bi-en">'+en+'</span>';return t(k)}
 
 // ═══════════════ SETTINGS ═══════════════
 function toggleSettings(){document.getElementById('settings-drawer').classList.toggle('open')}
@@ -776,57 +1477,782 @@ function applyToMatrix(){
     if(ms.length>=2&&!state.nodeScores[n.id][0])state.nodeScores[n.id][0]=1});
   renderRing();switchTab('matrix')}
 
-// ═══════════════ AI ANALYSIS (OpenAI-compatible) ═══════════════
+// ═══════════════ BATCH SPLIT (split pasted text into records) ═══════════════
+// Splitters (in priority order):
+//   1) a line that is only dashes (--- or more)
+//   2) blank line followed by a numbered marker (1. / 1、 / 案例1 / Case 1)
+//   3) a line starting with Case/案例/病例/记录 marker
+// If none match, the whole text is ONE record.
+function splitRecords(text){
+  text=String(text||'').replace(/\r\n/g,'\n').trim();
+  if(!text)return [];
+  // 1) dash separators
+  if(/^\s*-{3,}\s*$/m.test(text)){
+    return text.split(/^\s*-{3,}\s*$/m).map(function(s){return s.trim()}).filter(Boolean);}
+  // 2) explicit case/record markers on their own line (keep the marker with its block)
+  var markerRe=/^\s*(?:案例|病例|个案|记录|Case|CASE|Record)\s*[#＃]?\s*\d+\s*[:：.、)]?/m;
+  if(markerRe.test(text)){
+    var parts=[];var lastIdx=0;var re=new RegExp(markerRe.source,'gm');var m;var idxs=[];
+    while((m=re.exec(text))!==null){idxs.push(m.index);if(re.lastIndex===m.index)re.lastIndex++;}
+    if(idxs.length){
+      for(var i=0;i<idxs.length;i++){
+        var start=idxs[i];var end=i+1<idxs.length?idxs[i+1]:text.length;
+        var seg=text.slice(start,end).trim();if(seg)parts.push(seg);}
+      if(idxs[0]>0){var head=text.slice(0,idxs[0]).trim();if(head)parts.unshift(head);}
+      if(parts.length>1)return parts;}
+  }
+  // 3) blank-line + leading number (only if it yields >=2 records)
+  if(/\n\s*\n/.test(text)){
+    var blocks=text.split(/\n\s*\n+/).map(function(s){return s.trim()}).filter(Boolean);
+    var numbered=blocks.filter(function(b){return /^\s*\d+\s*[.、)：:]/.test(b)});
+    if(numbered.length>=2&&numbered.length===blocks.length)return blocks;
+  }
+  return [text];
+}
+
+// ═══════════════ v3 营养师端：本地批量映射（无需联网）═══════════════
+// 支持三类输入：① JSON（数组 / {cases:[...]} / 对象）；② CSV/TSV（带表头，
+// 至少一列含 文本/text/记录/主诉 等）；③ 纯文本（用 splitRecords 拆多条）。
+// 每条记录用 KEYWORDS 本地关键词映射到 7 节点+MES，产出与 AI 同形的 case 对象，
+// 并附 _localScores 以便逐客户「简单分析」。全程离线、确定性、非诊断/非处方。
+function parseBatchInput(text){
+  text=String(text||'').trim();if(!text)return [];
+  // ① JSON
+  if(/^[\[{]/.test(text)){
+    try{var j=JSON.parse(text);
+      var arr=Array.isArray(j)?j:(Array.isArray(j.cases)?j.cases:(Array.isArray(j.records)?j.records:[j]));
+      return arr.map(function(o,i){
+        if(typeof o==='string')return {name:'',text:o};
+        var name=o.name||o.id||o.客户||o.姓名||('#'+(i+1));
+        var txt=o.text||o.记录||o.note||o.主诉||o.summary||'';
+        if(!txt){ // 把对象其余字段拼成文本
+          txt=Object.keys(o).filter(function(k){return k!=='name'&&k!=='id'}).map(function(k){return k+':'+o[k]}).join('；')}
+        return {name:String(name),text:String(txt)}});
+    }catch(e){/* 落到文本分支 */}
+  }
+  // ② CSV / TSV（首行表头）
+  var lines=text.replace(/\r\n/g,'\n').split('\n').filter(function(l){return l.trim()});
+  var looksTabular=lines.length>=2 && /[,\t]/.test(lines[0]) &&
+    lines.filter(function(l){return /[,\t]/.test(l)}).length>=Math.max(2,Math.floor(lines.length*0.6));
+  if(looksTabular){
+    var delim=lines[0].indexOf('\t')>=0?'\t':',';
+    var header=splitCSVLine(lines[0],delim).map(function(h){return h.trim().toLowerCase()});
+    var nameIdx=header.findIndex(function(h){return /name|姓名|客户|编号|id|化名|称呼/.test(h)});
+    var textIdx=header.findIndex(function(h){return /text|记录|主诉|症状|描述|note|内容|叙述/.test(h)});
+    var out=[];
+    for(var r=1;r<lines.length;r++){
+      var cells=splitCSVLine(lines[r],delim);
+      var name=nameIdx>=0?(cells[nameIdx]||'').trim():('#'+r);
+      var txt;
+      if(textIdx>=0)txt=(cells[textIdx]||'').trim();
+      else txt=cells.map(function(c,ci){return ci===nameIdx?'':(header[ci]+':'+c)}).filter(Boolean).join('；');
+      if(txt)out.push({name:name||('#'+r),text:txt});
+    }
+    if(out.length)return out;
+  }
+  // ③ 纯文本：splitRecords 拆条，尝试从「姓名/Name/案例N」抽出名字
+  return splitRecords(text).map(function(rec,i){
+    var nm='';var m=rec.match(/(?:姓名|称呼|客户|Name)\s*[:：]\s*([^\n，,；;]{1,16})/);
+    if(m)nm=m[1].trim();
+    if(!nm){var m2=rec.match(/^\s*(?:案例|病例|个案|记录|Case|Record)\s*[#＃]?\s*(\d+)/);if(m2)nm=(lang==='zh'?'记录':'Record')+m2[1]}
+    return {name:nm||('#'+(i+1)),text:rec}})}
+function splitCSVLine(line,delim){
+  var out=[],cur='',q=false;
+  for(var i=0;i<line.length;i++){var ch=line[i];
+    if(q){if(ch==='"'){if(line[i+1]==='"'){cur+='"';i++}else q=false}else cur+=ch}
+    else{if(ch==='"')q=true;else if(ch===delim){out.push(cur);cur=''}else cur+=ch}}
+  out.push(cur);return out}
+// 本地把一段文本映射成节点选中项（返回 {nodeId:[itemText,...]} + scores 索引）
+function localMapRecord(text){
+  var nodes={};var scores={};
+  ALL_NODES.forEach(function(n){scores[n.id]={}});
+  Object.keys(KEYWORDS).forEach(function(id){
+    var n=ALL_NODES.filter(function(x){return x.id===id})[0];if(!n)return;
+    var items=n.items_zh||MES.items_zh||[];var hitItems=[];
+    KEYWORDS[id].forEach(function(w){
+      if(text.indexOf(w)>=0){
+        // 命中关键词 → 找最相关的 item（包含关系），否则记到节点首项
+        var matched=false;
+        items.forEach(function(it,i){if(it.indexOf(w)>=0||w.indexOf(it.slice(0,2))>=0){scores[id][i]=Math.max(scores[id][i]||0,2);if(hitItems.indexOf(it)<0)hitItems.push(it);matched=true}});
+        if(!matched){if(!scores[id][0])scores[id][0]=1;var w0=items[0];if(w0&&hitItems.indexOf(w0)<0)hitItems.push(w0)}
+      }});
+    if(hitItems.length)nodes[id]=hitItems;
+  });
+  return {nodes:nodes,scores:scores}}
+// 从 _localScores 计算逐客户简单分析（复用渲染）
+function simpleAnalysisFromScores(scoresMap){
+  var save=state.nodeScores;var saveItems=state.nodeItems;var saveLs=state.lifestyle;
+  state.nodeScores=scoresMap;state.nodeItems={};ALL_NODES.forEach(function(n){state.nodeItems[n.id]=[]});
+  // 本地批量不含生活方式自评，给空 lifestyle 以免误算
+  var tmpLs={};LIFESTYLE.forEach(function(l){tmpLs[l.id]={score:0,note:''}});state.lifestyle=tmpLs;
+  var sa=buildSimpleAnalysis();
+  state.nodeScores=save;state.nodeItems=saveItems;state.lifestyle=saveLs;
+  return sa}
+// 本地批量主流程：解析 → 逐条映射 → 渲染逐客户卡（含简单分析）
+function runLocalBatch(){
+  var text=document.getElementById('paste-input').value.trim();
+  if(!text){alert(t('ptDesc'));return}
+  state.pasteText=text;
+  var recs=parseBatchInput(text);
+  if(!recs.length){alert(t('noMatch'));return}
+  var cases=recs.map(function(r){
+    var mapped=localMapRecord(r.text);
+    var nodesObj={};Object.keys(mapped.nodes).forEach(function(id){nodesObj[id]=mapped.nodes[id]});
+    return {_name:r.name,_record:r.text,_localScores:mapped.scores,_local:true,
+      nodes:nodesObj,atm:{antecedents:[],triggers:[],mediators:[]},
+      lifestyle:{},loop:{red_flags:[],needs_review:[],next_step:[]},
+      _notes:'',_risk:'',summary_zh:'',summary_en:''}});
+  state.batch=cases;
+  renderBatch();
+  applyCaseToMatrix(0,true);
+  document.getElementById('batch-output').style.display='block';
+  document.getElementById('batch-output').scrollIntoView({behavior:'smooth',block:'start'})}
+// 复制某客户摘要到剪贴板（纯文本，含简单分析 + notes/风险，不含诊断/处方）
+function copyCaseSummary(idx){
+  var c=state.batch[idx];if(!c)return;
+  var name=c._name||(t('caseTitle')+' '+(idx+1));
+  var lines=[(lang==='zh'?'【客户】':'[Client] ')+name];
+  Object.keys(c.nodes||{}).forEach(function(id){
+    var n=ALL_NODES.filter(function(x){return x.id===id})[0];if(!n)return;
+    var arr=c.nodes[id];if(arr&&arr.length)lines.push((lang==='zh'?n.zh:n.en)+'：'+arr.map(function(x){return x&&typeof x==='object'?x.text:x}).join('、'))});
+  if(c._notes)lines.push((lang==='zh'?'营养师备注：':'Notes: ')+c._notes);
+  if(c._risk)lines.push((lang==='zh'?'风险提示：':'Risk: ')+c._risk);
+  lines.push('');lines.push(lang==='zh'?'（本摘要为 IFM 结构化观察整理，非诊断/非处方）':'(IFM structured observation only — not diagnosis/prescription)');
+  var txt=lines.join('\n');
+  var done=function(){var b=document.querySelector('[data-copy="'+idx+'"]');if(b){var o=b.textContent;b.textContent=lang==='zh'?'✓ 已复制':'✓ Copied';setTimeout(function(){b.textContent=o},1400)}};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(function(){fallbackCopy(txt);done()})}
+  else{fallbackCopy(txt);done()}}
+function fallbackCopy(txt){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(e){}ta.remove()}
+function setCaseNote(idx,v){if(state.batch[idx])state.batch[idx]._notes=v}
+function setCaseRisk(idx,v){if(state.batch[idx])state.batch[idx]._risk=v}
+
+// ═══════════════ IFM STRUCTURED MAPPING (OpenAI-compatible, batch) ═══════════════
+// Output is a STRUCTURAL MAPPING + OBSERVATIONS, never a diagnosis/prescription/dosage.
+function buildMappingPrompt(records){
+  var rec=records.map(function(r,i){return '【记录 '+(i+1)+'】\n'+r}).join('\n\n');
+  return '你是 IFM 功能医学 worksheet 的「结构化映射助手」。'
+    +'你的任务不是诊断、不是开处方、不是给补剂剂量、不是下临床结论。'
+    +'你只把每条记录里的「观察 / 自述」客观映射到 IFM worksheet 的四个区块，并用「观察到 / 可映射到 / 可与专业人员讨论」的语气表述。'
+    +'严禁出现疾病诊断名、治疗方案、药物或补剂剂量。\n\n'
+    +'四个区块：\n'
+    +'① ATM 故事线：antecedents 前置 / triggers 触发 / mediators 介导（每条为一句观察）。\n'
+    +'② 7 生理节点 + MES：节点 id 为 assimilation, defense, structure, energy, communication, transport, biotransformation, mes；每节点给可映射到的观察条目数组。'
+    +'映射规则：血脂/甘油三酯/高脂血症→transport；血糖代谢/线粒体/脂肪酸氧化→energy；肝解毒/甲基化/MTHFR→biotransformation；消化吸收/菌群→assimilation；情绪/睡眠/认知→mes。\n'
+    +'③ Lifestyle 杠杆：sleep/exercise/nutrition/stress/relationships，每项 note 为「可观察的生活方式杠杆方向」（非处方），可留空。\n'
+    +'④ 回环：red_flags=需要尽快与专业人员讨论的红线观察（如有）；needs_review=建议专业复核的不确定点；next_step=生活回环的下一步小动作（非治疗）。\n\n'
+    +'记录（共 '+records.length+' 条）：\n'+rec+'\n\n'
+    +'严格只返回 JSON，无任何额外文字、无 markdown：\n'
+    +'{"cases":[{'
+    +'"atm":{"antecedents":[{"text":""}],"triggers":[{"text":""}],"mediators":[{"text":""}]},'
+    +'"nodes":{"assimilation":[],"defense":[],"structure":[],"energy":[],"communication":[],"transport":[],"biotransformation":[],"mes":[]},'
+    +'"lifestyle":{"sleep":{"note":""},"exercise":{"note":""},"nutrition":{"note":""},"stress":{"note":""},"relationships":{"note":""}},'
+    +'"loop":{"red_flags":[],"needs_review":[],"next_step":[]},'
+    +'"summary_zh":"","summary_en":""}'
+    +']}';
+}
+
+// Normalize any backend shape into cases[] (back-compat: old single-object JSON → one case)
+function normalizeCases(parsed){
+  if(!parsed||typeof parsed!=='object')return [];
+  if(Array.isArray(parsed.cases))return parsed.cases;
+  if(Array.isArray(parsed))return parsed;
+  // old single-object schema (no cases[]) — wrap as one case
+  if(parsed.atm||parsed.nodes||parsed.lifestyle||parsed.summary_zh)return [parsed];
+  return [];
+}
+
 function runAI(){
   var text=document.getElementById('paste-input').value.trim();
   if(!text){alert(t('ptDesc'));return}
+  state.pasteText=text;
+  var records=splitRecords(text);
   var url=(document.getElementById('s-url').value||localStorage.getItem('ifm_url')||'').trim();
   var model=(document.getElementById('s-model').value||localStorage.getItem('ifm_model')||'gpt-4o-mini').trim();
   var key=apiKey||document.getElementById('s-key').value.trim();
   if(!key||!url){alert(t('aiNoKey'));return}
   var btn=document.getElementById('btn-ai');btn.textContent=t('analyzingText');btn.disabled=true;
-  var prompt='你是功能医学专家。分析以下患者资料，按 IFM 矩阵填写。注意：血脂/甘油三酯/高脂血症归入 transport 节点；血糖代谢/线粒体/脂肪酸氧化归 energy；肝解毒归 biotransformation；消化吸收归 assimilation。\n\n患者资料：\n'+text+'\n\n严格只返回 JSON，无其他文字：\n{"atm":{"antecedents":[{"text":""}],"triggers":[{"text":""}],"mediators":[{"text":""}]},"nodes":{"assimilation":[],"defense":[],"structure":[],"energy":[],"communication":[],"transport":[],"biotransformation":[],"mes":[]},"lifestyle":{"sleep":{"note":""},"exercise":{"note":""},"nutrition":{"note":""},"stress":{"note":""},"relationships":{"note":""}},"summary_zh":"","summary_en":""}';
+  var prompt=buildMappingPrompt(records);
   fetch(url.replace(/\/$/,'')+'/chat/completions',{method:'POST',
     headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
-    body:JSON.stringify({model:model,messages:[{role:'user',content:prompt}],max_tokens:2000})
+    body:JSON.stringify({model:model,messages:[{role:'user',content:prompt}],max_tokens:4000})
   }).then(function(r){return r.json()}).then(function(d){
     var raw=d.choices&&d.choices[0]?d.choices[0].message.content:'';
     var clean=raw.replace(/```json|```/g,'').trim();
     var parsed=JSON.parse(clean);
-    if(parsed.atm){['antecedents','triggers','mediators'].forEach(function(k,ki){
-      var sec=['ant','tri','med'][ki];
-      if(parsed.atm[k])parsed.atm[k].forEach(function(item){if(item.text)state[sec].push(item.text)})})}
-    if(parsed.nodes){Object.keys(parsed.nodes).forEach(function(id){
-      if(state.nodeItems[id]&&parsed.nodes[id].length)state.nodeItems[id]=parsed.nodes[id]})}
-    if(parsed.lifestyle){Object.keys(parsed.lifestyle).forEach(function(k){
-      if(state.lifestyle[k]&&parsed.lifestyle[k]){
-        state.lifestyle[k].note=parsed.lifestyle[k].note||''}})}
-    ['ant','tri','med'].forEach(renderBullets);renderRing();renderLifestyle();
-    var sumText=lang==='zh'?(parsed.summary_zh||''):(parsed.summary_en||'');
-    if(sumText){document.getElementById('ai-sum-title').textContent=t('aiSumTitle');
-      document.getElementById('ai-sum-text').textContent=sumText;
-      document.getElementById('ai-summary').style.display='block'}
-    switchTab('matrix')
+    var cases=normalizeCases(parsed);
+    if(!cases.length)throw new Error('no cases in response');
+    // pad case→record pairing: each case keeps the source record text for context
+    cases.forEach(function(c,i){c._record=records[i]!==undefined?records[i]:(records.length===1?records[0]:'')});
+    state.batch=cases;
+    renderBatch();
+    // auto-load the first case into the matrix view for immediate editing/export
+    applyCaseToMatrix(0,true);
+    document.getElementById('batch-output').style.display='block';
   }).catch(function(e){console.error(e);alert(t('aiError'));runKeywordScan()
   }).finally(function(){btn.textContent=t('btnAI');btn.disabled=false})}
+
+// Load one mapped case into the matrix state (replaces matrix content)
+function applyCaseToMatrix(idx,stayOnPaste){
+  var c=state.batch[idx];if(!c)return;
+  state.loop=c.loop||null;
+  state.ant=[];state.tri=[];state.med=[];
+  if(c.atm){[['antecedents','ant'],['triggers','tri'],['mediators','med']].forEach(function(pair){
+    var arr=c.atm[pair[0]];if(Array.isArray(arr))arr.forEach(function(item){
+      var txt=item&&typeof item==='object'?item.text:item;if(txt)state[pair[1]].push(String(txt))})})}
+  if(c.nodes){Object.keys(c.nodes).forEach(function(id){
+    if(state.nodeItems[id]&&Array.isArray(c.nodes[id]))
+      state.nodeItems[id]=c.nodes[id].map(function(x){return x&&typeof x==='object'?(x.text||''):String(x)}).filter(Boolean)})}
+  if(c.lifestyle){Object.keys(c.lifestyle).forEach(function(k){
+    if(state.lifestyle[k]&&c.lifestyle[k])state.lifestyle[k].note=c.lifestyle[k].note||''})}
+  ['ant','tri','med'].forEach(renderBullets);renderRing();renderLifestyle();
+  var sumText=lang==='zh'?(c.summary_zh||''):(c.summary_en||'');
+  if(sumText){document.getElementById('ai-sum-title').textContent=t('aiSumTitle');
+    document.getElementById('ai-sum-text').textContent=sumText;
+    document.getElementById('ai-summary').style.display='block'}
+  else{document.getElementById('ai-summary').style.display='none'}
+  if(!stayOnPaste)switchTab('matrix')}
+
+// Render the batch list (each case shown as IFM 4 blocks)
+function renderBatch(){
+  var wrap=document.getElementById('batch-list');if(!wrap)return;wrap.innerHTML='';
+  state.batch.forEach(function(c,idx){wrap.appendChild(caseCardEl(c,idx))})}
+
+function caseCardEl(c,idx){
+  var card=document.createElement('div');
+  card.style.cssText='border:1px solid var(--border);border-radius:10px;padding:10px;margin-top:10px;background:var(--paper-2)';
+  function block(title,inner){return '<div style="margin-top:8px"><div style="font-size:12px;font-weight:800;color:var(--sage);margin-bottom:3px">'+title+'</div>'+inner+'</div>'}
+  function chips(arr){if(!arr||!arr.length)return '<span style="font-size:11px;color:var(--ink-light)">—</span>';
+    return arr.map(function(x){var txt=x&&typeof x==='object'?(x.text||''):String(x);return txt?'<span style="display:inline-block;font-size:11px;background:var(--sage-pale);border:1px solid var(--border);border-radius:99px;padding:2px 8px;margin:2px 3px 0 0;color:var(--ink-mid)">'+escH(txt)+'</span>':''}).join('')}
+  // ① ATM
+  var atm=c.atm||{};
+  var atmHTML='<div style="font-size:11px;color:var(--ink-mid);line-height:1.7">'
+    +'<div><b style="color:#7E94A6">'+t('lAnt')+'：</b>'+chips(atm.antecedents)+'</div>'
+    +'<div><b style="color:#B49A86">'+t('lTri')+'：</b>'+chips(atm.triggers)+'</div>'
+    +'<div><b style="color:#A294A8">'+t('lMed')+'：</b>'+chips(atm.mediators)+'</div></div>';
+  // ② nodes + mes
+  var nodes=c.nodes||{};var nHTML='';
+  ALL_NODES.forEach(function(n){var arr=nodes[n.id];if(arr&&arr.length){
+    nHTML+='<div style="margin-bottom:2px"><b style="color:var(--sage)">'+(n.icon||'◉')+' '+(lang==='zh'?n.zh:n.en)+'：</b>'+chips(arr)+'</div>'}});
+  if(!nHTML)nHTML='<span style="font-size:11px;color:var(--ink-light)">—</span>';
+  // ③ lifestyle
+  var ls=c.lifestyle||{};var lsHTML='';
+  LIFESTYLE.forEach(function(l){var note=ls[l.id]&&ls[l.id].note?String(ls[l.id].note).trim():'';
+    if(note)lsHTML+='<div style="font-size:11px;color:var(--ink-mid)"><b>'+l.icon+' '+(lang==='zh'?l.zh:l.en)+'：</b>'+escH(note)+'</div>'});
+  if(!lsHTML)lsHTML='<span style="font-size:11px;color:var(--ink-light)">—</span>';
+  // ④ loop
+  var loop=c.loop||{};
+  var loopHTML='<div style="font-size:11px;line-height:1.7">'
+    +'<div><b style="color:#B08F88">🚩 '+(lang==='zh'?'红线/需尽快讨论':'Red flags')+'：</b>'+chips(loop.red_flags)+'</div>'
+    +'<div><b style="color:#A294A8">🔎 '+(lang==='zh'?'需专业复核':'Needs review')+'：</b>'+chips(loop.needs_review)+'</div>'
+    +'<div><b style="color:#4E5673">↺ '+(lang==='zh'?'生活回环下一步':'Next step')+'：</b>'+chips(loop.next_step)+'</div></div>';
+  // v3 营养师端「比普通用户更深」：逐客户简单分析 + 可编辑备注/风险 + 复制摘要
+  var title=c._name?escH(c._name):(t('caseTitle')+' '+(idx+1));
+  var deepHTML='';
+  if(c._local && c._localScores){
+    var sa=simpleAnalysisFromScores(c._localScores);
+    deepHTML+=block((lang==='zh'?'逐客户简单分析（本地）':'Per-client simple analysis (local)'),simpleAnalysisHTML(sa,{noNote:true}));
+  }
+  // 可编辑：营养师备注 + 风险提示（仅营养师端，体现深度）
+  deepHTML+='<div style="margin-top:8px;display:flex;flex-direction:column;gap:6px">'
+    +'<label style="font-size:11px;font-weight:700;color:var(--ink-mid)">'+(lang==='zh'?'📝 营养师备注（可编辑）':'📝 Practitioner notes (editable)')+'</label>'
+    +'<textarea data-note="'+idx+'" rows="2" style="width:100%;border:1px solid var(--border);border-radius:8px;background:var(--paper);padding:7px 9px;font-size:12px;font-family:inherit;resize:vertical;outline:none" placeholder="'+(lang==='zh'?'复核要点、追问方向、需补充的检查/记录…（非诊断/非处方）':'Review points, follow-ups, records to supplement… (not diagnosis/prescription)')+'">'+escH(c._notes||'')+'</textarea>'
+    +'<label style="font-size:11px;font-weight:700;color:#B08F88">'+(lang==='zh'?'🚩 风险提示（需尽快与专业人员讨论的观察）':'🚩 Risk note (observations to discuss with a professional soon)')+'</label>'
+    +'<input data-risk="'+idx+'" type="text" style="width:100%;border:1px solid var(--rose);border-radius:8px;background:#FBF6F4;padding:7px 9px;font-size:12px;font-family:inherit;outline:none" placeholder="'+(lang==='zh'?'如有需特别留意的观察，可在此标注…':'Note anything that needs special attention…')+'" value="'+escH(c._risk||'')+'"></div>';
+  card.innerHTML='<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">'
+    +'<div style="font-size:13px;font-weight:800;color:var(--ink)">'+(c._local?'👤 ':'')+title+'</div>'
+    +'<div style="display:flex;gap:6px;flex-wrap:wrap">'
+    +'<button class="apply-btn" style="width:auto;margin:0;padding:6px 12px;font-size:12px" data-copy="'+idx+'">'+(lang==='zh'?'📋 复制摘要':'📋 Copy')+'</button>'
+    +'<button class="apply-btn" style="width:auto;margin:0;padding:6px 12px;font-size:12px" data-apply="'+idx+'">'+t('caseApply')+'</button></div></div>'
+    +block(t('blkNodes'),nHTML)
+    +deepHTML
+    +(c._local?'':block(t('blkAtm'),atmHTML)+block(t('blkLifestyle'),lsHTML)+block(t('blkLoop'),loopHTML));
+  var ab=card.querySelector('[data-apply]');
+  if(ab)ab.addEventListener('click',function(){applyCaseToMatrix(parseInt(this.getAttribute('data-apply'),10),false)});
+  var cb=card.querySelector('[data-copy]');
+  if(cb)cb.addEventListener('click',function(){copyCaseSummary(parseInt(this.getAttribute('data-copy'),10))});
+  var nt=card.querySelector('[data-note]');
+  if(nt)nt.addEventListener('input',function(){setCaseNote(parseInt(this.getAttribute('data-note'),10),this.value)});
+  var rk=card.querySelector('[data-risk]');
+  if(rk)rk.addEventListener('input',function(){setCaseRisk(parseInt(this.getAttribute('data-risk'),10),this.value)});
+  return card}
+
+// ═══════════════ STATE SAVE / LOAD (pure front-end JSON; secondary draft only) ═══════════════
+// Export the full working state to a JSON file. API Key is NEVER included.
+function saveStateJSON(){
+  var payload={
+    app:APP_VERSION,exportedAt:new Date().toISOString(),
+    patient:{name:document.getElementById('f-name').value||'',
+      date:document.getElementById('f-date').value||'',
+      cc:document.getElementById('f-cc').value||''},
+    pasteText:document.getElementById('paste-input').value||'',
+    batch:state.batch,
+    matrix:{ant:state.ant,tri:state.tri,med:state.med,
+      nodeItems:state.nodeItems,nodeScores:state.nodeScores,lifestyle:state.lifestyle},
+    loop:state.loop||null,
+    summary:document.getElementById('ai-sum-text').textContent||''
+  };
+  var json=JSON.stringify(payload,null,2);
+  var blob=new Blob([json],{type:'application/json'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  var stamp=(payload.patient.date||todayStr())+'_'+(payload.patient.name||'ifm').replace(/[^\w一-龥-]/g,'');
+  a.href=url;a.download='ifm-matrix_'+stamp+'.json';
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(url);a.remove()},120);
+  // localStorage draft (optional, non-authoritative)
+  try{localStorage.setItem('ifm_draft',json)}catch(e){}
+  alert(t('saveOk'))}
+
+// Import a plain-text file straight into the paste box (text is the only input modality).
+function loadTextFile(inputEl){
+  var file=inputEl.files&&inputEl.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(){
+    var ta=document.getElementById('paste-input');
+    ta.value=(ta.value?ta.value.replace(/\s*$/,'')+'\n\n':'')+String(reader.result||'');
+    state.pasteText=ta.value;switchTab('paste');ta.focus();
+    inputEl.value='';};
+  reader.readAsText(file)}
+
+function loadStateJSON(inputEl){
+  var file=inputEl.files&&inputEl.files[0];if(!file)return;
+  var reader=new FileReader();
+  reader.onload=function(){
+    try{
+      var p=JSON.parse(reader.result);
+      if(!p||typeof p!=='object'||(!p.matrix&&!p.batch&&!p.app))throw new Error('bad');
+      applyImportedState(p);
+      alert(t('loadOk'));
+    }catch(e){console.error(e);alert(t('loadFail'))}
+    inputEl.value='';
+  };
+  reader.readAsText(file)}
+
+function applyImportedState(p){
+  if(p.patient){
+    document.getElementById('f-name').value=p.patient.name||'';
+    document.getElementById('f-date').value=p.patient.date||todayStr();
+    document.getElementById('f-cc').value=p.patient.cc||'';}
+  if(typeof p.pasteText==='string')document.getElementById('paste-input').value=p.pasteText;
+  state.pasteText=p.pasteText||'';
+  var m=p.matrix||{};
+  state.ant=Array.isArray(m.ant)?m.ant:[];
+  state.tri=Array.isArray(m.tri)?m.tri:[];
+  state.med=Array.isArray(m.med)?m.med:[];
+  // merge node items/scores defensively (only known node ids)
+  ALL_NODES.forEach(function(n){
+    if(m.nodeItems&&Array.isArray(m.nodeItems[n.id]))state.nodeItems[n.id]=m.nodeItems[n.id];
+    if(m.nodeScores&&m.nodeScores[n.id])state.nodeScores[n.id]=m.nodeScores[n.id];});
+  if(m.lifestyle)LIFESTYLE.forEach(function(l){
+    if(m.lifestyle[l.id])state.lifestyle[l.id]={score:m.lifestyle[l.id].score||0,note:m.lifestyle[l.id].note||''}});
+  state.loop=p.loop||null;
+  state.batch=Array.isArray(p.batch)?p.batch:[];
+  if(state.batch.length){renderBatch();document.getElementById('batch-output').style.display='block'}
+  if(p.summary){document.getElementById('ai-sum-title').textContent=t('aiSumTitle');
+    document.getElementById('ai-sum-text').textContent=p.summary;
+    document.getElementById('ai-summary').style.display='block'}
+  ['ant','tri','med'].forEach(renderBullets);renderRing();renderLifestyle();
+  switchTab('matrix')}
 
 // ═══════════════ LANG ═══════════════
 function setLang(l){lang=l;
   document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.textContent.trim()===(l==='zh'?'中文':'EN'))});
-  applyI18N();renderRing();renderLifestyle();['ant','tri','med'].forEach(renderBullets)}
+  applyI18N();renderRing();renderLifestyle();['ant','tri','med'].forEach(renderBullets);
+  if(state.batch&&state.batch.length)renderBatch();
+  // re-render v2 screens so the tree/wizard follow language
+  renderTree();
+  if(document.getElementById('screen-user').classList.contains('active'))renderWizard()}
 function applyI18N(){
   var map={'hdr-sub':'hdrSub','tab-matrix':'tabMatrix','tab-paste':'tabPaste',
     'sc-title-en':'scTitleEn','l-name':'lName','l-date':'lDate','l-cc':'lCC',
     'l-ant':'lAnt','l-tri':'lTri','l-med':'lMed','l-ant-sub':'lAntSub','l-tri-sub':'lTriSub','l-med-sub':'lMedSub',
     'btn-ant':'btnAnt','btn-tri':'btnTri','btn-med':'btnMed',
-    'pt-title':'ptTitle','pt-desc':'ptDesc','btn-scan':'btnScan','btn-ai':'btnAI',
+    'pt-title':'ptTitle','pt-desc':'ptDesc','btn-scan':'btnScan','btn-ai':'btnAI','btn-import-text':'btnImportText','btn-localbatch':'btnLocalBatch',
     'pt-result':'ptResult','pt-nodes':'ptNodes','btn-apply':'btnApply',
-    'bb-reset':'bbReset','bb-scan':'bbScan','bb-export':'bbExport',
+    'pt-batch':'ptBatch','pt-batch-hint':'ptBatchHint',
+    'bb-reset':'bbReset','bb-export':'bbExport',
     's-title':'sTitle','s-url-label':'sUrlLabel','s-model-label':'sModelLabel','s-key-label':'sKeyLabel',
     's-save':'sSave','s-test':'sTest','p-custom':'pCustom','s-note':'sNote',
-    'ai-sum-title':'aiSumTitle','sf-attr':'sfAttr','footer-text':'footer'};
-  Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el&&T[lang][map[id]])el.textContent=T[lang][map[id]]});
+    'ai-sum-title':'aiSumTitle','sf-attr':'sfAttr','footer-text':'footer',
+    // v2 screens
+    'role-home':'roleHome','role-user':'roleUser','role-pro':'rolePro',
+    'lh-title':'lhTitle','lh-en':'lhEn','lh-desc':'lhDesc',
+    'cta-user-t':'ctaUserT','cta-user-s':'ctaUserS','cta-pro-t':'ctaProT','cta-pro-s':'ctaProS',
+    'lh-safety':'lhSafety','wz-back':'wzBack','wz-title':'wzTitle',
+    'dm-summary':'dmSummary','dm-note':'dmNote','dm-save':'dmSave','dm-load':'dmLoad'};
+  // 介绍/说明类文本始终中英双语同时可见（中文 + 下接英文小字），不随语言切换只显示一种语言。
+  // BILINGUAL_INTRO 列出这些 id；它们用 innerHTML 渲染 中文 + <span class="bi-en">English</span>。
+  var BILINGUAL_INTRO={'hdr-sub':1,'lh-desc':1,'cta-user-t':1,'cta-user-s':1,'cta-pro-t':1,'cta-pro-s':1,'lh-safety':1,'dm-note':1,'dm-summary':1,'pt-desc':1,'pt-batch':1,'pt-batch-hint':1,'sf-attr':1,'footer-text':1,'s-note':1,'ai-sum-title':1};
+  Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(!el)return;
+    if(BILINGUAL_INTRO[id]){var k=map[id];var zh=T.zh[k],en=T.en[k];
+      if(zh&&en){el.innerHTML=zh+'<span class="bi-en">'+en+'</span>';return}}
+    if(T[lang][map[id]])el.textContent=T[lang][map[id]]});
   var sc=document.getElementById('sc-title');if(sc)sc.firstChild.textContent=t('scTitle')}
+
+// ═══════════════ v2 SCREEN ROUTER（landing / user / pro）═══════════════
+function goScreen(name){
+  ['landing','user','pro'].forEach(function(s){
+    document.getElementById('screen-'+s).classList.toggle('active',s===name)});
+  // role pill highlight
+  var roleMap={landing:'role-home',user:'role-user',pro:'role-pro'};
+  document.querySelectorAll('.role-btn').forEach(function(b){b.classList.remove('active')});
+  var rb=document.getElementById(roleMap[name]);if(rb)rb.classList.add('active');
+  // AI settings gear + bottom action bar only in pro portal (segregated from user flow)
+  document.getElementById('btn-settings').style.display=name==='pro'?'':'none';
+  document.getElementById('bottom-bar').style.display=name==='pro'?'flex':'none';
+  if(name!=='pro')document.getElementById('settings-drawer').classList.remove('open');
+  // lazy render per screen
+  if(name==='landing')renderTree();
+  if(name==='user'){if(wizardStep<0)wizardStep=0;renderWizard()}
+  try{window.scrollTo(0,0)}catch(e){}}
+
+// ═══════════════ FUNCTIONAL-MEDICINE TREE · 曙光新月旧树（首页示意图）═══════════════
+// 旧树/原 SVG 体系（根—干—枝/叶—果），曙光新月配色：深雾蓝紫树干、暖金枝、晨光叶团。
+// 实心几何描边树（非线描笔触），明度由下至上递进：根在暗处（深雾蓝紫）→ 树冠被晨光提亮。
+// 纯 inline SVG + viewBox → 双端流式缩放，无需图片。7 个生理节点叶团仍可点击锚定到矩阵。
+// 根=ATM 前因/触发/介导；干=MES 中心叙事；枝/叶=7 生理节点；下方果实带=生活方式/改善/复核。
+var TREE_BRANCH_MAP=['assimilation','defense','energy','communication','transport','biotransformation','structure'];
+function focusTreeNode(nodeId){
+  // 从首页树点击某节点 → 进入营养师工作台矩阵视图并高亮该节点框
+  goScreen('pro');switchTab('matrix');
+  setTimeout(function(){
+    var box=document.querySelector('[data-node="'+nodeId+'"]');
+    if(!box && nodeId==='mes')box=document.querySelector('.mes-core');
+    if(box){box.scrollIntoView({behavior:'smooth',block:'center'});
+      box.style.transition='box-shadow .35s';var prev=box.style.boxShadow;
+      box.style.boxShadow='0 0 0 3px rgba(111,119,149,0.55)';
+      setTimeout(function(){box.style.boxShadow=prev||''},1400)}
+  },60)}
+function renderTree(){
+  var wrap=document.getElementById('tree-svg-wrap');if(!wrap)return;
+  // ═══ 圆点式生命树（人类要求：回到圆点节点，给文字留呼吸，去水墨/剪影）═══
+  // 配色全部走 3~5 档蓝（深→浅）；金黄仅作单一「果」点睛，不大面积。
+  var blue1='#303652',   // 最深：根/干主色
+      blue2='#383F5F',   // 次深：枝
+      blue3='#5A6188',   // 中：节点点 / 标签字
+      blue4='#6F7795',   // 浅中：辅助线 / 根须
+      blue5='#DCE0EE',   // 浅：晕底 / 圆点内圈
+      blue6='#F4F6FC',   // 极浅：纸底
+      gold ='#E2B85A';   // 金黄点睛（仅 1 个果点）
+  var ink=blue1;
+  // 7 个枝端圆点节点用蓝阶分布（深→浅再回深，左右对称），不再用暖红/暖棕
+  var nodeCols={assimilation:blue3,defense:blue4,energy:blue2,communication:blue3,
+    transport:blue4,biotransformation:blue3,structure:blue2};
+  var L=lang==='zh'
+    ?{roots:['前因','触发','介导'],rootsSub:['Antecedents','Triggers','Mediators'],trunk:'中心叙事 MES',
+      branches:['同化代谢','防御修复','能量生成','传递系统','运输转运','转化排除','结构完整'],fruit:'🍎 果 · 生活方式 / 改善 / 复核'}
+    :{roots:['Antecedent','Trigger','Mediator'],rootsSub:['前因','触发','介导'],trunk:'MES core',
+      branches:['Assimilation','Defense','Energy','Communication','Transport','Biotransform.','Structure'],fruit:'🍎 Fruit · Lifestyle / Improve / Review'};
+  // viewBox 拉高、上方留出文字带，让圆点标签有呼吸、不挤在树下
+  var trunkTopX=230,trunkTopY=210,trunkBotX=230,trunkBotY=330;
+  // 7 圆点落点：沿树冠弧线散开（左右对称、错落）。上抬以便标签在圆点上/下各有空间
+  var canopy=[[58,150],[112,108],[172,86],[230,80],[288,90],[346,114],[400,156]];
+  var svg='<svg viewBox="0 0 460 470" role="img" aria-label="'+(lang==='zh'?'功能医学之树（圆点式）':'Functional medicine tree (round-dot)')+'" preserveAspectRatio="xMidYMid meet">';
+  // —— 树冠柔晕（极淡蓝，单色，给圆点一个底）——
+  svg+='<ellipse cx="230" cy="118" rx="206" ry="98" fill="'+blue5+'" opacity="0.45"/>';
+  // —— 根系：三道细描边根（前因/触发/介导），蓝阶 + 根须 ——
+  var rootCols=[blue2,blue3,blue4];
+  var rootEnds=[[120,430],[230,442],[340,430]];
+  rootEnds.forEach(function(p,i){
+    svg+='<path d="M'+trunkBotX+' '+(trunkBotY-2)+' C 230 380, '+(p[0])+' 392, '+p[0]+' '+p[1]+'" stroke="'+rootCols[i]+'" stroke-width="'+(4.2-i*0.3)+'" fill="none" stroke-linecap="round" opacity="0.9"/>';
+    // 圆点根端 + 标签（留呼吸：字在圆点下方 16/27px 两行）
+    svg+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="6.2" fill="'+rootCols[i]+'"/>';
+    svg+='<text x="'+p[0]+'" y="'+(p[1]+18)+'" text-anchor="middle" font-size="11" font-weight="700" fill="'+ink+'">'+escH(L.roots[i])+'</text>';
+    svg+='<text x="'+p[0]+'" y="'+(p[1]+29)+'" text-anchor="middle" font-size="8" fill="'+blue4+'">'+escH(L.rootsSub[i])+'</text>';});
+  // —— 树干：细线笔触（非实心剪影、非水墨），蓝阶细描 ——
+  svg+='<path d="M'+trunkBotX+' '+trunkBotY+' C '+(trunkBotX-3)+' 290, '+(trunkTopX-2)+' 246, '+trunkTopX+' '+trunkTopY+'" stroke="'+blue1+'" stroke-width="6" fill="none" stroke-linecap="round"/>';
+  // —— 干上 MES 题签（描边小印，浅蓝底深字，无暖底）——
+  svg+='<rect x="'+(trunkTopX-48)+'" y="252" width="96" height="24" rx="6" fill="'+blue6+'" stroke="'+blue3+'" stroke-width="1.2"/>';
+  svg+='<text x="'+trunkTopX+'" y="268" text-anchor="middle" font-size="11" font-weight="800" fill="'+blue1+'">'+escH(L.trunk)+'</text>';
+  // —— 枝：细蓝曲线（无金棕、无水墨毛边）——
+  canopy.forEach(function(p,i){
+    var midx=(trunkTopX+p[0])/2, midy=(trunkTopY+p[1])/2-16;
+    svg+='<path d="M'+trunkTopX+' '+(trunkTopY+2)+' Q '+midx+' '+midy+', '+p[0]+' '+p[1]+'" stroke="'+blue2+'" stroke-width="'+(2.6-Math.abs(i-3)*0.18)+'" fill="none" stroke-linecap="round" opacity="0.8"/>';
+  });
+  // —— 7 个圆点节点（圆点式：外圈描边 + 实心内点）+ 文字（上/下交替，留呼吸）——
+  canopy.forEach(function(p,i){
+    var id=TREE_BRANCH_MAP[i],col=nodeCols[id];
+    // 顶部中央 3 个圆点把标签放上方，两侧 4 个放下方 → 不让长字全挤在树下
+    var labelAbove=(p[1]<=92);
+    svg+='<g class="tree-node-g" tabindex="0" role="button" '
+      +'aria-label="'+escH(L.branches[i])+'" '
+      +'onclick="focusTreeNode(\''+id+'\')" '
+      +'onkeydown="if(event.key===\'Enter\'||event.key===\' \'){event.preventDefault();focusTreeNode(\''+id+'\')}" '
+      +'style="cursor:pointer">';
+    // 透明热区便于触控
+    svg+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="22" fill="#000" opacity="0"/>';
+    // 圆点：浅底大圆 + 节点色描边 + 实心内点（清晰圆点节点）
+    svg+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="9" fill="'+col+'"/>';
+    // 标签：上/下交替，描白底防压字，给文字呼吸
+    var ty=labelAbove?p[1]-16:p[1]+22;
+    svg+='<text x="'+p[0]+'" y="'+ty+'" text-anchor="middle" font-size="10" font-weight="700" fill="'+blue1+'" style="paint-order:stroke" stroke="'+blue6+'" stroke-width="2.8">'+escH(L.branches[i])+'</text>';
+    svg+='</g>';});
+  // —— 果：单一金黄圆点点睛（挂在中央偏右枝端外侧，呼应「果」）——
+  /* yuanjiang-remove-extra-gold-dot: removed prior gold accent dot inside tree SVG; no other visual element changed. */
+  // —— 地平线：细虚线（先画，作为「果实带」与「根带」分隔）——
+  svg+='<line x1="46" y1="384" x2="414" y2="384" stroke="'+blue4+'" stroke-width="1.2" stroke-dasharray="3 6" opacity="0.5"/>';
+  // —— 果实带题字（地平线之下、根标签之上的留白带内，单独成行不挤树下）——
+  svg+='<text x="230" y="404" text-anchor="middle" font-size="10.5" font-weight="700" fill="'+blue3+'">'+escH(L.fruit)+'</text>';
+  svg+='</svg>';
+  wrap.innerHTML=svg;
+  // legend：tier 点沿用配色（root/trunk/branch/fruit），文案保留
+  var leg=document.getElementById('tree-legend');if(leg){
+    leg.innerHTML=TREE_TIERS.map(function(tier){
+      // 图例始终中英双语：层级名 中文 + 英文小字；说明 中文 + 英文小字（en 字段含完整英文释义）。
+      return '<div class="legend-item"><div class="lg-tier"><span class="lg-dot" style="background:'+tier.color+'"></span>'+tier.icon+' '+tier.zh+'</div>'
+        +'<div class="lg-en">'+tier.en+'</div>'
+        +'<div class="lg-zh">'+tier.note_zh+'<span class="bi-en">'+tier.note_en+'</span></div></div>'}).join('')}}
+
+// ═══════════════ v3 共用：确定性「简单分析」引擎（非诊断/非处方）═══════════════
+// 完全本地、可离线。基于 state.nodeScores（每节点选中条目数）+ lifestyle，
+// 产出保守措辞的「重点关注方向 / 可留意方向 / 生活方式着手点」。
+// 严格不出现：诊断病名、治疗、处方、0–100 分、准诊断话术。
+function computeNodeFocus(){
+  // 返回 [{id,name,sub,count,total,level}]，level: 0 无 / 1 少 / 2 多
+  return ALL_NODES.map(function(n){
+    var scores=state.nodeScores[n.id]||{};
+    var items=n.items_zh||MES.items_zh||[];
+    var count=0;Object.keys(scores).forEach(function(k){if(scores[k]>0)count++});
+    var extra=(state.nodeItems[n.id]||[]).filter(function(x){return x&&x.trim()}).length;
+    count+=extra;
+    var total=items.length+extra;
+    var ratio=total?count/total:0;
+    var level=count===0?0:(count>=3||ratio>=0.5?2:1);
+    return {id:n.id,name:lang==='zh'?n.zh:n.en,sub:(lang==='zh'?(n.sub_zh||''):(n.sub_en||'')),
+      count:count,total:total,level:level}})}
+function selectedItemTexts(nodeId){
+  var n=ALL_NODES.filter(function(x){return x.id===nodeId})[0];if(!n)return [];
+  var items=lang==='zh'?(n.items_zh||MES.items_zh):(n.items_en||MES.items_en);
+  var scores=state.nodeScores[nodeId]||{};var out=[];
+  items.forEach(function(it,i){if(scores[i]>0)out.push(it)});
+  (state.nodeItems[nodeId]||[]).forEach(function(x){if(x&&x.trim())out.push(x.trim())});
+  return out}
+// 简单分析对象（供用户端与营养师端共用渲染）
+function buildSimpleAnalysis(){
+  var focus=computeNodeFocus();
+  // 把每个节点的选中条目文本快照进 focus（避免 simpleAnalysisFromScores 还原 state 后读不到）
+  focus.forEach(function(f){f.items=selectedItemTexts(f.id)});
+  var heavy=focus.filter(function(f){return f.level===2});
+  var light=focus.filter(function(f){return f.level===1});
+  // lifestyle：取自评较差(userScore>=3)或备注非空的项作为「可着手方向」
+  var lsScale=t('lsScale');var lsLines=[];
+  LIFESTYLE.forEach(function(l){
+    var ls=state.lifestyle[l.id]||{};var name=lang==='zh'?l.zh:l.en;
+    var us=ls.userScore||0;var note=(ls.note||'').trim();
+    if(us>=3){lsLines.push((l.icon+' '+name+'：'+(lang==='zh'?'自评偏弱（':'self-rated weaker (')+lsScale[us-1]+'）'+(lang==='zh'?'，可作为优先改善方向':', a priority to improve')))}
+    else if(note){lsLines.push(l.icon+' '+name+'：'+note)}});
+  return {focus:focus,heavy:heavy,light:light,lsLines:lsLines}}
+// 把简单分析渲染成 HTML（用户端 result 卡 + 营养师端批量卡共用）
+function simpleAnalysisHTML(sa,opts){
+  opts=opts||{};
+  var html='';
+  if(!sa.heavy.length && !sa.light.length && !sa.lsLines.length){
+    return '<div class="simple-an"><p>'+t('resSaCalm')+'</p></div>'}
+  html+='<div class="simple-an">';
+  if(sa.heavy.length){
+    html+='<div class="sa-focus">'+sa.heavy.map(function(f){return '<span class="sa-focus-tag">'+escH(f.name)+'</span>'}).join('')+'</div>';
+    html+='<p>'+t('saFocusLine')+'</p><ul>';
+    sa.heavy.forEach(function(f){
+      var its=(f.items||[]).slice(0,4);
+      html+='<li><b style="color:var(--sage)">'+escH(f.name)+'</b>'+(its.length?'：'+escH(its.join('、')):'')+'</li>'});
+    html+='</ul>'}
+  if(sa.light.length){
+    html+='<p style="margin-top:8px">'+t('saObserveLine')+'</p><ul>';
+    sa.light.forEach(function(f){
+      var its=(f.items||[]).slice(0,3);
+      html+='<li>'+escH(f.name)+(its.length?'（'+escH(its.join('、'))+'）':'')+'</li>'});
+    html+='</ul>'}
+  if(sa.lsLines.length){
+    html+='<p style="margin-top:8px"><b style="color:var(--gold-deep)">'+t('resSaLsTitle')+'</b></p><ul>';
+    sa.lsLines.forEach(function(line){html+='<li>'+escH(line)+'</li>'});
+    html+='</ul>'}
+  if(!opts.noNote)html+='<div class="sa-note">'+tb('resSaNote')+'</div>';
+  html+='</div>';
+  return html}
+// 简版只读矩阵（用户端）：7 节点小卡 + MES，按选中数显示深浅层级，不给分数
+function userMatrixHTML(){
+  var focus=computeNodeFocus();
+  var byId={};focus.forEach(function(f){byId[f.id]=f});
+  var cells=NODES.map(function(n){
+    var f=byId[n.id]||{level:0};
+    var its=selectedItemTexts(n.id);
+    var tagHTML=its.length?its.slice(0,4).map(function(x){return '<span class="umx-tag">'+escH(x)+'</span>'}).join('')
+      :'<span class="umx-none">'+t('resMxNone')+'</span>';
+    return '<div class="umx-cell'+(f.level?' lv'+f.level:'')+'">'
+      +'<div class="umx-name">'+(n.icon||'◉')+' '+escH(lang==='zh'?n.zh:n.en)+'</div>'
+      +'<div class="umx-sub">'+escH(lang==='zh'?(n.sub_zh||''):(n.sub_en||''))+'</div>'
+      +'<div class="umx-tags">'+tagHTML+'</div></div>'}).join('');
+  // MES core (full-width)
+  var mf=byId['mes']||{level:0};var mits=selectedItemTexts('mes');
+  var mtag=mits.length?mits.slice(0,5).map(function(x){return '<span class="umx-tag">'+escH(x)+'</span>'}).join('')
+    :'<span class="umx-none">'+t('resMxNone')+'</span>';
+  var mes='<div class="umx-cell umx-mes'+(mf.level?' lv'+mf.level:'')+'">'
+    +'<div class="umx-name">🧠 '+escH(lang==='zh'?'心理 · 情绪 · 精神':'Mental · Emotional · Spiritual')+'</div>'
+    +'<div class="umx-tags">'+mtag+'</div></div>';
+  return '<div class="umx-grid">'+cells+mes+'</div>'}
+
+// ═══════════════ USER WIZARD（问卷向导）═══════════════
+var wizardStep=-1; // -1 not started; 0..2 steps; 3 = result (我的矩阵+简单分析+AI)
+var WIZ_TOTAL=3;
+function renderStepBar(){
+  var bar=document.getElementById('step-bar');if(!bar)return;
+  var html='';for(var i=0;i<WIZ_TOTAL;i++){
+    var cls=i<wizardStep?'done':(i===wizardStep?'current':'');
+    html+='<div class="step-pip '+cls+'"></div>'}
+  bar.style.display=wizardStep>=0&&wizardStep<WIZ_TOTAL?'flex':'none';
+  bar.innerHTML=html}
+function renderWizard(){
+  renderStepBar();
+  var body=document.getElementById('wizard-body');if(!body)return;
+  if(wizardStep===0)body.innerHTML=wizStepBasic();
+  else if(wizardStep===1)body.innerHTML=wizStepLifestyle();
+  else if(wizardStep===2)body.innerHTML=wizStepSymptoms();
+  else body.innerHTML=wizResult()}
+function wizNav(prevLabel,nextLabel,nextFn,nextCls){
+  var prev=wizardStep>0?'<button class="wz-btn wz-prev" onclick="wizPrev()">'+escH(prevLabel)+'</button>':'';
+  return '<div class="wizard-nav">'+prev+'<button class="wz-btn '+(nextCls||'wz-next')+'" onclick="'+nextFn+'">'+escH(nextLabel)+'</button></div>'}
+function wizStepBasic(){
+  return '<div class="q-card"><div class="q-step-label">'+t('stepBasicLabel')+'</div>'
+    +'<div class="q-step-title">'+t('stepBasicTitle')+'</div>'
+    +'<div class="q-step-desc">'+tb('stepBasicDesc')+'</div>'
+    +'<div class="q-field"><label>'+t('qNick')+'</label><input type="text" id="wz-nick" value="'+escH(document.getElementById('f-name').value||'')+'" placeholder="'+escH(t('qNickPh'))+'"></div>'
+    +'<div class="q-field"><label>'+t('qAgeSex')+'</label><input type="text" id="wz-agesex" value="'+escH(wizData.agesex||'')+'" placeholder="'+escH(t('qAgeSexPh'))+'"></div>'
+    +'<div class="q-field"><label>'+t('qMainFeel')+'</label><input type="text" id="wz-mainfeel" value="'+escH(document.getElementById('f-cc').value||'')+'" placeholder="'+escH(t('qMainFeelPh'))+'"></div>'
+    +'</div>'+wizNav(t('wzPrev'),t('wzNext'),'wizNext()')}
+function wizStepLifestyle(){
+  var scale=t('lsScale');
+  var rows=LIFESTYLE.map(function(l){
+    var cur=(state.lifestyle[l.id]&&state.lifestyle[l.id].userScore)||0; // 1..4
+    var opts=scale.map(function(lab,k){var v=k+1;
+      return '<button class="q-ls-btn'+(cur===v?' active':'')+'" onclick="wizSetLS(\''+l.id+'\','+v+')">'+escH(lab)+'</button>'}).join('');
+    return '<div class="q-ls-row"><div class="q-ls-name">'+l.icon+' '+(lang==='zh'?l.zh:l.en)+'</div><div class="q-ls-opts">'+opts+'</div></div>'}).join('');
+  return '<div class="q-card"><div class="q-step-label">'+t('stepLifeLabel')+'</div>'
+    +'<div class="q-step-title">'+t('stepLifeTitle')+'</div>'
+    +'<div class="q-step-desc">'+tb('stepLifeDesc')+'</div>'+rows
+    +'</div>'+wizNav(t('wzPrev'),t('wzNext'),'wizNext()')}
+function wizStepSymptoms(){
+  var groups=WIZARD_SYMPTOMS.map(function(g){
+    var chips=g.q.map(function(item){
+      var on=wizSym[g.node]&&wizSym[g.node].indexOf(item.i)>=0;
+      return '<button class="sym-chip'+(on?' on':'')+'" onclick="wizToggleSym(\''+g.node+'\','+item.i+',this)">'+escH(item.t)+'</button>'}).join('');
+    return '<div style="margin-bottom:14px"><div class="q-group-title"><span class="qg-icon">'+g.icon+'</span>'+(lang==='zh'?g.zh:g.zh)+'</div><div class="q-symptoms">'+chips+'</div></div>'}).join('');
+  return '<div class="q-card"><div class="q-step-label">'+t('stepSymLabel')+'</div>'
+    +'<div class="q-step-title">'+t('stepSymTitle')+'</div>'
+    +'<div class="q-step-desc">'+tb('stepSymDesc')+'</div>'+groups
+    +'<div class="q-field" style="margin-top:6px"><label>'+t('qNote')+'</label><textarea id="wz-note" placeholder="'+escH(t('qNotePh'))+'">'+escH(wizData.note||'')+'</textarea></div>'
+    +'</div>'+wizNav(t('wzPrev'),t('wzDone'),'wizFinish()','wz-done')}
+// v3：提交后用户看到「我的矩阵 + 简单分析 + AI 分析（可选）」，而非仅一句感谢。
+function wizResult(){
+  var sa=buildSimpleAnalysis();
+  var html='';
+  // 头部小结
+  html+='<div class="q-card q-thanks" style="padding:14px 12px"><div class="qt-icon">🌿</div>'
+    +'<h3>'+t('resTitle')+'</h3><p style="margin-bottom:0">'+tb('resSubmitted')+'</p></div>';
+  // ① 我的矩阵（简版只读）
+  html+='<div class="result-card"><h3>'+t('resMxTitle')+'</h3>'
+    +'<div class="rc-hint">'+tb('resMxHint')+'</div>'+userMatrixHTML()+'</div>';
+  // ② 简单分析（确定性、本地）
+  html+='<div class="result-card"><h3>'+t('resSaTitle')+'</h3>'
+    +'<div class="rc-hint">'+tb('resSaHint')+'</div>'+simpleAnalysisHTML(sa)+'</div>';
+  // ③ AI 分析（可选，复用营养师端接口；未配置则提示看本地）
+  html+='<div class="user-ai-card"><h3>'+t('resAiTitle')+'</h3>'
+    +'<div class="rc-hint">'+tb('resAiHint')+'</div>'
+    +'<button class="user-ai-btn" id="user-ai-btn" onclick="userRunAI()">'+t('resAiBtn')+'</button>'
+    +'<div class="user-ai-out" id="user-ai-out"></div></div>';
+  // 动作：导出我的报告 / 交给营养师 / 重填
+  html+='<div class="result-actions">'
+    +'<button class="wz-btn wz-prev" onclick="wizRestart()">'+escH(t('resRestart'))+'</button>'
+    +'<button class="wz-btn wz-prev" onclick="printReport()">'+escH(t('resPrint'))+'</button>'
+    +'<button class="wz-btn wz-done" onclick="goScreen(\'pro\')">'+escH(t('resToPro'))+'</button></div>';
+  return html}
+// 用户端 AI 分析：复用营养师端已配置接口；输出仅为观察整理，非诊断/处方。
+function userRunAI(){
+  var url=(document.getElementById('s-url').value||localStorage.getItem('ifm_url')||'').trim();
+  var model=(document.getElementById('s-model').value||localStorage.getItem('ifm_model')||'gpt-4o-mini').trim();
+  var key=apiKey||(document.getElementById('s-key').value||'').trim();
+  var out=document.getElementById('user-ai-out');var btn=document.getElementById('user-ai-btn');
+  if(!url||!key){out.textContent=t('resAiNoKey');out.classList.add('show');return}
+  // 用「当前用户填写映射出的记录」构造一条记录文本
+  var rec=buildUserRecordText();
+  btn.textContent=t('resAiRun');btn.disabled=true;
+  var prompt=buildMappingPrompt([rec]);
+  fetch(url.replace(/\/$/,'')+'/chat/completions',{method:'POST',
+    headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+    body:JSON.stringify({model:model,messages:[{role:'user',content:prompt}],max_tokens:4000})
+  }).then(function(r){return r.json()}).then(function(d){
+    var raw=d.choices&&d.choices[0]?d.choices[0].message.content:'';
+    var clean=raw.replace(/```json|```/g,'').trim();
+    var parsed=JSON.parse(clean);var cases=normalizeCases(parsed);
+    if(!cases.length)throw new Error('no cases');
+    var c=cases[0];var sum=lang==='zh'?(c.summary_zh||''):(c.summary_en||'');
+    var loop=c.loop||{};
+    var txt=(sum?sum+'\n\n':'');
+    function ln(label,arr){if(!arr||!arr.length)return '';
+      var s=arr.map(function(x){return x&&typeof x==='object'?(x.text||''):String(x)}).filter(Boolean).join('；');
+      return s?label+'：'+s+'\n':''}
+    txt+=ln(lang==='zh'?'需专业复核':'Needs review',loop.needs_review);
+    txt+=ln(lang==='zh'?'生活回环下一步':'Next step',loop.next_step);
+    out.textContent=txt.trim()||sum||t('resAiErr');out.classList.add('show');
+  }).catch(function(e){console.error(e);out.textContent=t('resAiErr');out.classList.add('show')
+  }).finally(function(){btn.textContent=t('resAiBtn');btn.disabled=false})}
+// 把用户当前的矩阵/生活方式整理为一段记录文本（供 AI 映射用，纯本地拼接）
+function buildUserRecordText(){
+  var parts=[];
+  var ag=wizData.agesex||'';if(ag)parts.push(ag);
+  var feel=(document.getElementById('f-cc')||{}).value||'';if(feel)parts.push((lang==='zh'?'最想改善：':'Want to improve: ')+feel);
+  computeNodeFocus().forEach(function(f){if(f.level>0){
+    var its=selectedItemTexts(f.id);if(its.length)parts.push(f.name+'：'+its.join('、'))}});
+  var lsScale=t('lsScale');
+  LIFESTYLE.forEach(function(l){var ls=state.lifestyle[l.id]||{};
+    if(ls.userScore)parts.push((lang==='zh'?l.zh:l.en)+(lang==='zh'?'自评：':' self: ')+lsScale[ls.userScore-1])});
+  if(wizData.note)parts.push((lang==='zh'?'补充：':'Note: ')+wizData.note);
+  return parts.join('；')}
+
+// wizard transient buffers (held until commit on each step / finish)
+var wizData={agesex:'',note:''};
+var wizSym={}; // node -> [item indices]
+function wizCaptureBasic(){
+  var nick=document.getElementById('wz-nick');if(nick)document.getElementById('f-name').value=nick.value;
+  var feel=document.getElementById('wz-mainfeel');if(feel)document.getElementById('f-cc').value=feel.value;
+  var ag=document.getElementById('wz-agesex');if(ag)wizData.agesex=ag.value}
+function wizSetLS(id,v){
+  if(!state.lifestyle[id])state.lifestyle[id]={score:0,note:''};
+  state.lifestyle[id].userScore=v;renderWizard()}
+function wizToggleSym(node,idx,el){
+  if(!wizSym[node])wizSym[node]=[];
+  var p=wizSym[node].indexOf(idx);
+  if(p>=0){wizSym[node].splice(p,1);if(el)el.classList.remove('on')}
+  else{wizSym[node].push(idx);if(el)el.classList.add('on')}}
+function wizNext(){
+  if(wizardStep===0)wizCaptureBasic();
+  if(wizardStep<WIZ_TOTAL-1){wizardStep++;renderWizard();try{window.scrollTo(0,0)}catch(e){}}}
+function wizPrev(){if(wizardStep>0){wizardStep--;renderWizard();try{window.scrollTo(0,0)}catch(e){}}}
+function wizFinish(){
+  // capture note
+  var noteEl=document.getElementById('wz-note');if(noteEl)wizData.note=noteEl.value;
+  // commit lifestyle user self-rating into note text (plain-language, never prescriptive)
+  var scale=t('lsScale');
+  LIFESTYLE.forEach(function(l){
+    var us=state.lifestyle[l.id]&&state.lifestyle[l.id].userScore;
+    if(us){var label=scale[us-1];
+      var self=(lang==='zh'?'自评：':'Self: ')+label;
+      var prev=(state.lifestyle[l.id].note||'').replace(/(（|\()?自评[:：][^\n；;]*）?/,'').replace(/Self:[^\n;]*/,'').trim();
+      state.lifestyle[l.id].note=self+(prev?' · '+prev:'')}});
+  // commit symptoms into node scores (moderate=2, the user said "frequent")
+  Object.keys(wizSym).forEach(function(node){
+    if(!state.nodeScores[node])return;
+    wizSym[node].forEach(function(i){if(!state.nodeScores[node][i])state.nodeScores[node][i]=2})});
+  // user free note → mediators bullet (so practitioner sees it in ATM column)
+  if(wizData.note&&wizData.note.trim()){
+    var tag=(lang==='zh'?'用户补充：':'User note: ')+wizData.note.trim();
+    if(state.med.indexOf(tag)<0)state.med.push(tag)}
+  // re-render practitioner views so the data shows up when they switch over
+  ['ant','tri','med'].forEach(renderBullets);renderRing();renderLifestyle();
+  wizardStep=WIZ_TOTAL;renderWizard();try{window.scrollTo(0,0)}catch(e){}}
+function wizRestart(){
+  wizData={agesex:'',note:''};wizSym={};
+  LIFESTYLE.forEach(function(l){if(state.lifestyle[l.id])state.lifestyle[l.id].userScore=0});
+  wizardStep=0;renderWizard()}
 
 // ═══════════════ TABS / RESET ═══════════════
 function switchTab(tab){
@@ -846,7 +2272,11 @@ function resetAll(){
   document.getElementById('paste-input').value='';
   document.getElementById('match-output').style.display='none';
   document.getElementById('ai-summary').style.display='none';
-  state.scanResult=null;
+  var bo=document.getElementById('batch-output');if(bo)bo.style.display='none';
+  var bl=document.getElementById('batch-list');if(bl)bl.innerHTML='';
+  state.scanResult=null;state.pasteText='';state.batch=[];state.loop=null;
+  // v2: clear user-questionnaire buffers too
+  wizData={agesex:'',note:''};wizSym={};wizardStep=-1;
   ['ant','tri','med'].forEach(renderBullets);renderRing();renderLifestyle()}
 
 // ═══════════════ EXPORT (print → PDF; no Blob, no .html download) ═══════════════
@@ -874,7 +2304,7 @@ function generateReport(){
   atmDefs.forEach(function(def){
     var items=state[def[0]];if(!items.length)return;
     atmHTML+='<div style="margin-bottom:10px"><div style="font-size:12px;font-weight:700;color:'+def[2]+';margin-bottom:4px">● '+def[1]+'</div><ul style="list-style:none;padding-left:10px">';
-    items.forEach(function(it){if(it)atmHTML+='<li style="font-size:12px;color:#5C615C;margin-bottom:2px">► '+escH(it)+'</li>'});
+    items.forEach(function(it){if(it)atmHTML+='<li style="font-size:12px;color:#4F5570;margin-bottom:2px">► '+escH(it)+'</li>'});
     atmHTML+='</ul></div>'});
   var nodesHTML=ALL_NODES.map(function(n){
     var items=lang==='zh'?n.items_zh:n.items_en;
@@ -882,47 +2312,63 @@ function generateReport(){
     var scores=state.nodeScores[n.id];var extra=state.nodeItems[n.id]||[];
     var total=Object.values(scores).reduce(function(a,b){return a+b},0);
     var pct=total/(items.length*3);
-    var bc=pct===0?'#C7C1B6':pct<0.4?'#C2A98F':'#B08F88';
+    var bc=pct===0?'#C7CBD9':pct<0.4?'#9DA2C0':'#C9A5A1';
     var active=items.filter(function(_,i){return scores[i]>0});
-    return '<div style="border:1px solid '+bc+';border-top:3px solid '+bc+';border-radius:8px;padding:10px;background:#F7F5F0;break-inside:avoid">'
+    return '<div style="border:1px solid '+bc+';border-top:3px solid '+bc+';border-radius:8px;padding:10px;background:#FFFFFF;break-inside:avoid">'
       +'<div style="font-size:13px;font-weight:800;color:#3B3F3B;margin-bottom:1px">'+(n.icon||'◉')+' '+name2+'</div>'
       +'<div style="font-size:9px;color:#8A8E88;margin-bottom:5px">'+sub+'</div>'
       +(active.length===0&&extra.length===0
         ?'<div style="font-size:11px;color:#B6B2A8">'+(lang==='zh'?'无异常标记':'No items marked')+'</div>'
         :'<ul style="list-style:none;padding:0">'
-          +items.map(function(item,i){return scores[i]>0?'<li style="font-size:11px;color:#5C615C;margin-bottom:2px">► '+escH(item)+' <span style="background:'+(scores[i]===1?'#E9E0D2':scores[i]===2?'#E4D2C7':'#E2CCC6')+';padding:1px 5px;border-radius:3px;font-size:9px">'+sevLabels[scores[i]]+'</span></li>':''}).join('')
-          +extra.map(function(it){return it?'<li style="font-size:11px;color:#5C615C;margin-bottom:2px">► '+escH(it)+'</li>':''}).join('')+'</ul>')
+          +items.map(function(item,i){return scores[i]>0?'<li style="font-size:11px;color:#4F5570;margin-bottom:2px">► '+escH(item)+' <span style="background:'+(scores[i]===1?'#E9E0D2':scores[i]===2?'#E4D2C7':'#E2CCC6')+';padding:1px 5px;border-radius:3px;font-size:9px">'+sevLabels[scores[i]]+'</span></li>':''}).join('')
+          +extra.map(function(it){return it?'<li style="font-size:11px;color:#4F5570;margin-bottom:2px">► '+escH(it)+'</li>':''}).join('')+'</ul>')
       +'</div>'}).join('');
   var lsHTML=LIFESTYLE.map(function(l){
     var ls=state.lifestyle[l.id];var lname=lang==='zh'?l.zh:l.en;
     var method=(ls.note||'').trim();var methodLabel=t('lsMethod');
-    return '<div style="border-top:2px solid #CFC9BF;padding-top:8px"><div style="font-size:11px;font-weight:700;color:#5C615C;margin-bottom:2px">'+l.icon+' '+lname+'</div>'
-      +'<div style="font-size:10px;color:#8A8E88;margin-top:4px;line-height:1.45"><span style="font-weight:800;color:#6E7B73">'+methodLabel+'：</span>'+(method?escH(method):'—')+'</div></div>'}).join('');
+    return '<div style="border-top:2px solid #CFC9BF;padding-top:8px"><div style="font-size:11px;font-weight:700;color:#4F5570;margin-bottom:2px">'+l.icon+' '+lname+'</div>'
+      +'<div style="font-size:10px;color:#8A8E88;margin-top:4px;line-height:1.45"><span style="font-weight:800;color:#4E5673">'+methodLabel+'：</span>'+(method?escH(method):'—')+'</div></div>'}).join('');
   var aiText=document.getElementById('ai-sum-text').textContent;
+  // ④ loop block (red flags / needs review / next step) — observations only, never prescriptive
+  var loop=state.loop||{};
+  function loopChips(arr){if(!arr||!arr.length)return '—';
+    return arr.map(function(x){var txt=x&&typeof x==='object'?(x.text||''):String(x);return txt?escH(txt):''}).filter(Boolean).join('；')||'—'}
+  var hasLoop=loop&&((loop.red_flags&&loop.red_flags.length)||(loop.needs_review&&loop.needs_review.length)||(loop.next_step&&loop.next_step.length));
+  var loopHTML=hasLoop?'<div style="background:#F1EFE9;border:1px solid #CFC9BF;border-radius:10px;padding:12px;margin-top:14px">'
+    +'<div style="font-size:13px;font-weight:800;color:#4E5673;margin-bottom:8px;letter-spacing:1px">'+t('blkLoop')+'</div>'
+    +'<div style="font-size:11px;color:#4F5570;line-height:1.7">'
+    +'<div><b style="color:#B08F88">🚩 '+(lang==='zh'?'红线/需尽快讨论':'Red flags')+'：</b>'+loopChips(loop.red_flags)+'</div>'
+    +'<div><b style="color:#A294A8">🔎 '+(lang==='zh'?'需专业复核':'Needs review')+'：</b>'+loopChips(loop.needs_review)+'</div>'
+    +'<div><b style="color:#4E5673">↺ '+(lang==='zh'?'生活回环下一步':'Next step')+'：</b>'+loopChips(loop.next_step)+'</div></div></div>':'';
   return '<!DOCTYPE html><html lang="'+lang+'"><head><meta charset="UTF-8">'
     +'<meta name="viewport" content="width=device-width,initial-scale=1">'
     +'<title>IFM 矩阵报告 · '+escH(name)+' · '+date+'</title>'
-    +'<style>body{font-family:\'PingFang SC\',\'Noto Sans SC\',STSong,serif;background:#EAE7E1;color:#3B3F3B;margin:0;padding:16px}'
-    +'.rpt-header{background:linear-gradient(135deg,#5A645D,#84776F);color:#F4F2EC;padding:18px;border-radius:10px;margin-bottom:14px}'
+    +'<style>body{font-family:\'PingFang SC\',\'Noto Sans SC\',STSong,serif;background:#FFFFFF;color:#3B3F44;margin:0;padding:16px}'
+    +'.rpt-header{background:linear-gradient(135deg,#4E5673,#6F7795);color:#F5EDE4;padding:18px;border-radius:10px;margin-bottom:14px}'
     +'.nodes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}'
     +'.ls-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;background:#E1DDD3;border:1px solid #CFC9BF;border-radius:10px;padding:10px}'
     +'@media print{body{background:white;padding:8px}.nodes-grid{grid-template-columns:repeat(4,1fr)}@page{margin:12mm}}'
     +'@media(max-width:640px){.nodes-grid{grid-template-columns:repeat(2,1fr)}.ls-grid{grid-template-columns:repeat(2,1fr)}}'
     +'</style></head><body>'
-    +'<div class="rpt-header"><div style="font-size:18px;font-weight:800;letter-spacing:1px;margin-bottom:5px">⬡ 灵台·观己 功能医学矩阵报告</div>'
-    +'<div style="font-size:10px;opacity:.75;margin-bottom:12px">Lingtai · Guanji IFM Matrix Worksheet Report</div>'
+    +'<div class="rpt-header"><div style="font-size:18px;font-weight:800;letter-spacing:1px;margin-bottom:5px">⬡ 灵台·观己 IFM 结构化映射记录</div>'
+    +'<div style="font-size:10px;opacity:.75;margin-bottom:4px">Lingtai · Guanji IFM Matrix Mapping Worksheet</div>'
+    +'<div style="font-size:9px;opacity:.7;margin-bottom:12px">'+t('sfAttr')+'</div>'
     +'<div style="display:flex;gap:20px;font-size:12px;flex-wrap:wrap">'
     +'<span>'+t('lName')+'：<strong>'+escH(name)+'</strong></span>'
     +'<span>'+t('lDate')+'：<strong>'+date+'</strong></span>'
     +'<span>'+t('lCC')+'：<strong>'+escH(cc)+'</strong></span></div></div>'
-    +(atmHTML?'<div style="background:#F1EFE9;border:1px solid #CFC9BF;border-radius:10px;padding:12px;margin-bottom:14px"><div style="font-size:13px;font-weight:800;color:#6E7B73;margin-bottom:8px;letter-spacing:1px">'+t('scTitle')+'</div>'+atmHTML+'</div>':'')
-    +'<div style="font-size:13px;font-weight:800;color:#6E7B73;margin-bottom:8px;letter-spacing:1px">Physiology &amp; Function · '+(lang==='zh'?'7 节点 + 中心情志核':'7 Nodes + MES Core')+'</div>'
+    +(atmHTML?'<div style="background:#F1EFE9;border:1px solid #CFC9BF;border-radius:10px;padding:12px;margin-bottom:14px"><div style="font-size:13px;font-weight:800;color:#4E5673;margin-bottom:8px;letter-spacing:1px">'+t('scTitle')+'</div>'+atmHTML+'</div>':'')
+    +'<div style="font-size:13px;font-weight:800;color:#4E5673;margin-bottom:8px;letter-spacing:1px">Physiology &amp; Function · '+(lang==='zh'?'7 节点 + 中心情志核':'7 Nodes + MES Core')+'</div>'
     +'<div class="nodes-grid">'+nodesHTML+'</div>'
-    +'<div style="font-size:13px;font-weight:800;color:#6E7B73;margin-bottom:8px;letter-spacing:1px">'+t('lsTitle')+'</div>'
+    +'<div style="font-size:13px;font-weight:800;color:#4E5673;margin-bottom:8px;letter-spacing:1px">'+t('lsTitle')+'</div>'
     +'<div class="ls-grid">'+lsHTML+'</div>'
-    +(aiText?'<div style="background:#EAEAE3;border:1px solid #CFC9BF;border-left:3px solid #6E7B73;border-radius:8px;padding:12px;margin-top:14px"><div style="font-size:12px;font-weight:700;color:#6E7B73;margin-bottom:4px">'+t('aiSumTitle')+'</div><div style="font-size:12px;color:#5C615C;line-height:1.6">'+escH(aiText)+'</div></div>':'')
+    +loopHTML
+    +(aiText?'<div style="background:#EAEAE3;border:1px solid #CFC9BF;border-left:3px solid #6F7795;border-radius:8px;padding:12px;margin-top:14px"><div style="font-size:12px;font-weight:700;color:#4E5673;margin-bottom:4px">'+t('aiSumTitle')+'</div><div style="font-size:12px;color:#3B3F44;line-height:1.6">'+escH(aiText)+'</div></div>':'')
     +'<div style="margin-top:20px;padding-top:10px;border-top:1px solid #CFC9BF;text-align:center;font-size:10px;color:#8A8E88">'
-    +t('footer')+'<br><span style="color:#6E7B73;font-weight:800">创建者：王润圆 昆明医科大学营养与食品卫生学硕士 × 灵台AI · 灵台地址：https://github.com/Lingtai-AI/lingtai</span></div>'
+    +T.zh.footer+'<br>'+T.en.footer+'<br><span style="color:#4E5673;font-weight:800">创建者：王润圆 昆明医科大学营养与食品卫生学硕士 × 灵台AI</span>'
+    +'<br><span style="color:#7E84A0;font-weight:600;font-size:11px">Creator: Wang Runyuan · M.Sc. in Nutrition &amp; Food Hygiene, Kunming Medical University × Lingtai AI</span>'
+    +'<div style="margin:9px 0 4px;font-size:14px;font-weight:800;color:#4E5673;letter-spacing:.04em">关注我：公众号 圆酱说营养<div style="font-size:10px;font-weight:600;color:#8A86A6;margin-top:2px">Follow me: WeChat Official Account 圆酱说营养 (Yuanjiang Talks Nutrition)</div></div>'
+    +'<br><span style="color:#4E5673;font-weight:800">灵台地址 / Lingtai repo：https://github.com/Lingtai-AI/lingtai</span></div>'
     +'</body></html>'}
 
 // ═══════════════ UTILS ═══════════════
@@ -933,6 +2379,11 @@ function todayStr(){var d=new Date();return d.getFullYear()+'-'+String(d.getMont
 // ═══════════════ INIT ═══════════════
 document.getElementById('f-date').value=todayStr();
 renderRing();renderLifestyle();['ant','tri','med'].forEach(renderBullets);applyI18N();
+// v2 主入口：先渲染功能医学树并落在 landing 首页（用户/营养师从这里分流）。
+// 营养师端仍保留「粘贴文本」作为快速入口（switchTab 在其首次进入 pro 时已就绪）。
+switchTab('paste');     // 预置营养师端默认子页（粘贴/导入），但不直接展示
+renderTree();           // 渲染首页功能医学树
+goScreen('landing');    // 默认落在 landing 首页
 </script>
 </body>
 </html>
