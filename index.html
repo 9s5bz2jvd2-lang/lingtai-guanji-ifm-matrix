@@ -1031,12 +1031,26 @@ var AI_ENHANCEMENT = {
   ]
 };
 
+/* Guided ATM options: do not force users to invent antecedents/triggers/mediators from a blank box. */
+var ATM_OPTIONS={
+  ant:[
+    '家族慢病/代谢病史','早期喂养或成长经历','长期高糖/高油/外食饮食','长期压力或照护负担','长期睡眠作息不规律','既往疾病或手术史','长期用药/补剂史','体重长期变化','运动不足或久坐','环境/职业暴露'
+  ],
+  tri:[
+    '近期感染/发热','手术/创伤/住院','连续熬夜或过劳','明显情绪事件','饮食模式突然改变','饮酒或聚餐后不适','药物/补剂变化','近期体检异常','体重快速变化','旅行/搬家/环境变化'
+  ],
+  med:[
+    '睡眠不足或节律紊乱','压力持续偏高','饮食不规律或摄入失衡','运动不足或久坐','消化吸收不适','炎症/过敏线索','血糖/能量代谢压力','内分泌/激素节律线索','疼痛/肌骨结构问题','情绪/心理支持不足'
+  ]
+};
+
 /* ════════ STATE ════════ */
 var ALL_NODES = NODES.concat([MES]);
 var state = {
   nodeScores:{},        // {nodeId:{itemIdx:0/2}}
   lifestyle:{},         // {lsId:0..3}
-  atm:{ant:[''],tri:[''],med:['']},
+  atm:{ant:[''],tri:[''],med:['']},        // 其他补充文本
+  atmPick:{ant:{},tri:{},med:{}},              // guided ATM checkbox selections
   basic:{nick:'',agesex:'',mainfeel:'',note:''},
   redflags:{},          // {redFlagId:true}
   data:{},              // 当前数据记录草稿
@@ -1062,7 +1076,7 @@ function go(v){
   if(v==='data') renderData();
   if(v==='trend') renderTrend();
   if(v==='matrix') renderMatrix();
-  if(v==='report') renderReportView();
+  if(v==='report'){ renderReportView(); if(typeof requestIfmTemplateFit==='function') requestIfmTemplateFit(); }
   if(v==='ai') renderAi();
   if(v==='pro') renderPro();
 }
@@ -1086,10 +1100,10 @@ function renderWizard(){
       '</div></div>';
     // ATM 病史 / 触发因素
     html+='<div class="card"><h3>病史与触发因素 <span class="tag">ATM</span></h3>'+
-      '<p class="grp-desc">功能医学 ATM 故事线：前置因素（A）· 触发事件（T）· 介导 / 持续因素（M）。想到什么写什么，可留空。</p>'+
-      atmBlock('前置因素 A（基因 / 早期环境 / 易感）','ant')+
-      atmBlock('触发因素 T（催化剂 / 事件）','tri')+
-      atmBlock('介导 / 持续因素 M（持续参与因素）','med')+
+      '<p class="grp-desc">功能医学 ATM 故事线：前置因素（A）· 触发事件（T）· 媒介 / 持续因素（M）。先点选常见选项；若没有合适项，再在「其他补充」里写一句即可。</p>'+
+      atmBlock('前置因素 A（长期背景 / 易感土壤）','ant')+
+      atmBlock('触发因素 T（近期催化事件）','tri')+
+      atmBlock('媒介 / 持续因素 M（正在维持状态的过程）','med')+
       '</div>';
   } else if(step==='life'){
     document.getElementById('wzTitle').textContent='第 2 步 · 生活方式';
@@ -1154,14 +1168,31 @@ function setLife(id,s){ state.lifestyle[id]=s; renderWizard(); }
 function toggleSym(node,i,el){ state.nodeScores[node][i] = state.nodeScores[node][i]>0?0:2; el.classList.toggle('sel'); }
 function toggleRed(id,el){ state.redflags[id]=!state.redflags[id]; el.classList.toggle('sel'); }
 function atmBlock(label,key){
+  var opts=ATM_OPTIONS[key]||[], chips='';
+  opts.forEach(function(t,i){
+    var sel=!!(state.atmPick[key]&&state.atmPick[key][i]);
+    chips+='<span class="chip'+(sel?' sel':'')+'" onclick="toggleAtmOption(\''+key+'\','+i+',this)">'+esc(t)+'</span>';
+  });
   var arr=state.atm[key], rows='';
   arr.forEach(function(v,idx){
-    rows+='<div class="atm-item"><input value="'+esc(v)+'" oninput="state.atm.'+key+'['+idx+']=this.value" placeholder="点击填写…">'+
+    rows+='<div class="atm-item"><input value="'+esc(v)+'" oninput="state.atm.'+key+'['+idx+']=this.value" placeholder="其他补充，可留空…">'+
       '<button onclick="rmAtm(\''+key+'\','+idx+')">×</button></div>';
   });
-  return '<div style="margin:6px 0 10px"><label style="font-size:12px;color:var(--ink-mid);font-weight:500">'+label+'</label>'+
-    '<div class="atm-list">'+rows+'</div>'+
-    '<button class="btn btn-ghost" style="padding:6px 14px;font-size:13px" onclick="addAtm(\''+key+'\')">＋ 添加一条</button></div>';
+  return '<div style="margin:10px 0 14px"><label style="font-size:12px;color:var(--ink-mid);font-weight:700">'+label+'</label>'+
+    '<div class="chips" style="margin-top:8px">'+chips+'</div>'+
+    '<div class="atm-list" style="margin-top:8px"><div style="font-size:12px;color:var(--ink-soft);margin:2px 0 5px">其他补充（可选）：</div>'+rows+'</div>'+
+    '<button class="btn btn-ghost" style="padding:6px 14px;font-size:13px" onclick="addAtm(\''+key+'\')">＋ 添加补充</button></div>';
+}
+function toggleAtmOption(key,idx,el){
+  if(!state.atmPick[key]) state.atmPick[key]={};
+  state.atmPick[key][idx]=!state.atmPick[key][idx];
+  el.classList.toggle('sel');
+}
+function atmValues(key){
+  var out=[];
+  (ATM_OPTIONS[key]||[]).forEach(function(t,i){ if(state.atmPick[key]&&state.atmPick[key][i]) out.push(t); });
+  (state.atm[key]||[]).forEach(function(v){ v=String(v||'').trim(); if(v) out.push(v); });
+  return out;
 }
 function addAtm(key){ state.atm[key].push(''); renderWizard(); }
 function rmAtm(key,idx){ state.atm[key].splice(idx,1); if(!state.atm[key].length) state.atm[key]=['']; renderWizard(); }
@@ -1341,6 +1372,11 @@ function runSkillEngine(){
     bmi:computeBMI(), completeness:completeness, labFilled:labFilled.length, labTotal:labRangeKeys.length,
     evidence:SK.evidence_levels.D
   };
+  rep.sections.atm={
+    antecedents:atmValues('ant'), triggers:atmValues('tri'), mediators:atmValues('med'),
+    evidence:SK.evidence_levels.D
+  };
+  trace.push('atm_options [ev:D] ← guided ATM selections + optional supplements');
 
   /* 2 · IFM 矩阵映射 + 重点节点（observational） */
   var matrix=[], focus=[], mild=[];
@@ -1437,6 +1473,7 @@ function paintReport(rep){
   var gaps=S.gaps||{};
   var qs=S.questions||{};
   var life=S.lifestyle||{};
+  var atm=S.atm||{};
   function escH(v){return String(v==null?'':v).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function arr(v){return Array.isArray(v)?v:(v?[v]:[])}
   function take(a,n){return arr(a).filter(Boolean).slice(0,n)}
@@ -1449,16 +1486,20 @@ function paintReport(rep){
   var ageSex=sum.agesex||'年龄/性别待补';
   var bmi=sum.bmi?('BMI '+sum.bmi):'BMI 待补';
   var mainfeel=sum.mainfeel||matrix.focus||'当前症状、体征与检查线索待补充';
-  var antecedents=[nick+'｜'+ageSex+'｜'+bmi];
-  if(sum.draftFields) antecedents.push('已填写问卷字段 '+sum.draftFields+' 项');
-  if(sum.savedRecords) antecedents.push('已保存健康/饮食/检查资料 '+sum.savedRecords+' 条');
+  var antecedents=[nick+'｜'+ageSex+'｜'+bmi].concat(take(atm.antecedents||[],4));
   if(!antecedents.length) antecedents.push('家族史、成长史、长期生活方式与既往资料待补充');
   var labFlags=take((labs.flags||[]).map(function(f){return (f.label||'指标')+(f.value?('：'+f.value):'')}),4);
   var redHits=take(red.hits||[],3);
-  var triggers=labFlags.concat(redHits);
+  var labTriggerNote=labFlags.length?['近期体检/化验提示有需专业复核的指标']:[];
+  var triggers=take(atm.triggers||[],4).concat(redHits).concat(labTriggerNote);
   if(!triggers.length) triggers=['近期体检、症状变化或生活事件待补充'];
   var gapList=take((gaps.list||[]).map(function(g){return (g.node||'资料缺口')+'：'+(g.missing||'待补充')}),4);
-  var mediators=gapList.length?gapList:['睡眠、运动、饮食、压力、血脂/血压/肝肾功能等介质线索待补充'];
+  // 媒介因素只呈现正在影响身体状态的中介过程/状态；检测项目或缺失报告不再塞入 Mediators。
+  var mediatorBase=take(atm.mediators||[],4);
+  take(matrix.focus||[],3).forEach(function(x){ mediatorBase.push('重点功能节点：'+x); });
+  take(matrix.mild||[],2).forEach(function(x){ mediatorBase.push('可继续观察：'+x); });
+  take(life.weak||[],3).forEach(function(x){ mediatorBase.push('生活方式需关注：'+x); });
+  var mediators=mediatorBase.length?mediatorBase:['睡眠、运动、饮食、压力、消化吸收和代谢节律等介质线索待补充'];
   var symptomLine=mainfeel+'；'+(matrix.mild||'本报告仅作线索整理，需由医生、营养师或相关专业人员复核。');
   var qList=take((qs.list||[]).map(function(q){return (q.node||'复核问题')+'：'+textList(q.qs,'待追问')}),3);
   var lifeDirs=take(life.directions||life.weak||[],5);
@@ -1503,19 +1544,35 @@ nodeOrder.map(function(n){return '<div class="system" style="'+n[4]+'">'+escH(n[
 '<div class="ifm-fit-frame"><div class="ifm-slide story-page">'+
 '<div class="topbar"></div><div class="toporange"></div><div class="botorange"></div><div class="botbar"></div><div class="title">观己故事</div><div class="storybox">'+escH(story)+'</div><div class="cols"><div><b>重点关注</b><br>'+escH(textList(labFlags.concat(redHits), '暂无明确红旗，继续补充资料。'))+'</div><div><b>补充检查/资料</b><br>'+escH(textList(gapList, '补充三日饮食、血脂、血压、肝肾功能等。'))+'</div><div><b>带去问专业人员的问题</b><br>'+escH(textList(qList, '哪些指标最值得复核？生活方式先从哪一步做？'))+'</div></div><div class="tagline">本报告仅作自我观察、资料整理与专业沟通辅助；不作诊断、治疗、用药或补剂处方。</div></div></div>';
   document.getElementById('reportBody').innerHTML=css+'<div class="ifm-template-report">'+timeline+matrixHtml+storyHtml+'</div>';
-  setTimeout(fitIfmTemplateSlides,30);
+  requestIfmTemplateFit();
   if(!window.__ifmTemplateFitBound){window.__ifmTemplateFitBound=true;window.addEventListener('resize',fitIfmTemplateSlides)}
 }
+// 师父 2026-07-01 纠偏：报告容器在隐藏标签页里首绘时 clientWidth=0，
+// 旧逻辑会退化成 scale(1)，1280px 固定图式溢出 100% 宽的框，框框被裁切=“放错位置”。
+// 修复：宽度不可测时不落 scale(1)，改用 rAF 重试，直到报告页真正可见再等比缩放。
 function fitIfmTemplateSlides(){
   var frames=document.querySelectorAll('#reportBody .ifm-fit-frame');
+  var pending=false;
   frames.forEach(function(frame){
     var slide=frame.querySelector('.ifm-slide');
     if(!slide)return;
-    var scale=Math.min(1, frame.clientWidth/1280);
-    if(!isFinite(scale)||scale<=0)scale=1;
+    var w=frame.clientWidth;
+    if(!isFinite(w)||w<=0){ pending=true; return; } // 隐藏/未布局：先跳过，等可见再缩放
+    var scale=Math.min(1, w/1280);
+    if(!isFinite(scale)||scale<=0){ pending=true; return; }
     slide.style.transform='scale('+scale+')';
+    slide.style.transformOrigin='left top';
     frame.style.height=(720*scale)+'px';
   });
+  return pending;
+}
+// 反复重试直到框框拿到真实可见宽度（最多约 1.5s），避免报告首绘时框框错位。
+function requestIfmTemplateFit(tries){
+  tries=tries||0;
+  var pending=fitIfmTemplateSlides();
+  if(pending&&tries<30){
+    (window.requestAnimationFrame||function(f){setTimeout(f,16)})(function(){requestIfmTemplateFit(tries+1)});
+  }
 }
 function exportReport(){
   if(!state.lastReport){ flash('请先生成报告'); return; }
@@ -1605,7 +1662,7 @@ function exportAll(){
     app:'灵台·观己 健康追踪本地原型 · 功能医学 skill 集成版',
     version:'app-ifm-skill-integrated-v1',
     exported_note:'结构化健康记录与 IFM 观察摘要 · 非诊断 / 非处方',
-    basic:state.basic, atm:state.atm, redflags:state.redflags,
+    basic:state.basic, atm:state.atm, atm_pick:state.atmPick, redflags:state.redflags,
     ifm_scores:state.nodeScores, lifestyle:state.lifestyle, submitted:state.submitted,
     data_draft:state.data, records:state.records,
     skill:FUNCTIONAL_MEDICINE_SKILL.meta,
